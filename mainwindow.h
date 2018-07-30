@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "BaseDatos/DatabaseManager/databasemanager.h"
 
 namespace Ui {
 class MainWindow;
@@ -17,6 +18,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    DatabaseManager &man;
 };
 
 #endif // MAINWINDOW_H

@@ -27,11 +27,15 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     BaseDatos/DatabaseManager/databasemanager.cpp \
     BaseDatos/ENTITIES/regla.cpp \
-    BaseDatos/DAOs/regladao.cpp
+    BaseDatos/DAOs/regladao.cpp \
+    BaseDatos/ENTITIES/categoria.cpp \
+    BaseDatos/DAOs/categoriadao.cpp
 
 HEADERS  += mainwindow.h \
     BaseDatos/DatabaseManager/databasemanager.h \
     BaseDatos/ENTITIES/regla.h \
-    BaseDatos/DAOs/regladao.h
+    BaseDatos/DAOs/regladao.h \
+    BaseDatos/ENTITIES/categoria.h \
+    BaseDatos/DAOs/categoriadao.h
 
 FORMS    += mainwindow.ui
