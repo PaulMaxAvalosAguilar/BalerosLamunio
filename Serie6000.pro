@@ -25,9 +25,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    BaseDatos/DatabaseManager/databasemanager.cpp
+    BaseDatos/DatabaseManager/databasemanager.cpp \
+    BaseDatos/ENTITIES/regla.cpp \
+    BaseDatos/DAOs/regladao.cpp
 
 HEADERS  += mainwindow.h \
-    BaseDatos/DatabaseManager/databasemanager.h
+    BaseDatos/DatabaseManager/databasemanager.h \
+    BaseDatos/ENTITIES/regla.h \
+    BaseDatos/DAOs/regladao.h
 
 FORMS    += mainwindow.ui
