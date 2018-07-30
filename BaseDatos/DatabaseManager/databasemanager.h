@@ -5,6 +5,8 @@
 
 #include <QString>
 
+#include "BaseDatos/DAOs/regladao.h"
+
 class QSqlQuery;
 class QSqlDatabase;
 
@@ -24,7 +26,7 @@ private:
     std::unique_ptr<QSqlDatabase> mDatabase;
 
 public://Add your DAO's as public members
-
+    ReglaDao regladao;
 
 
 };

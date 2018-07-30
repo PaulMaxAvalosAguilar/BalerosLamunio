@@ -26,11 +26,14 @@ void DatabaseManager::debugQuery(const QSqlQuery& query)
 }
 
 DatabaseManager::DatabaseManager(const QString& path) :
-    mDatabase(new QSqlDatabase(QSqlDatabase::addDatabase("QSQLITE")))
+    mDatabase(new QSqlDatabase(QSqlDatabase::addDatabase("QSQLITE"))),
+    regladao(*mDatabase)
 {
     mDatabase->setDatabaseName(path);
     bool openStatus = mDatabase->open();
     qDebug() << "Database connection: " << (openStatus ? "OK" : "Error");
+
+    regladao.init();
 
 }
 
