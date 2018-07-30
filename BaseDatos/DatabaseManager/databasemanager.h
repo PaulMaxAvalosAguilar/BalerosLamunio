@@ -8,6 +8,7 @@
 #include "BaseDatos/DAOs/regladao.h"
 #include "BaseDatos/DAOs/categoriadao.h"
 #include "BaseDatos/DAOs/subcategoriadao.h"
+#include "BaseDatos/DAOs/codigodao.h"
 
 class QSqlQuery;
 class QSqlDatabase;
@@ -31,6 +32,7 @@ public://Add your DAO's as public members
     ReglaDao regladao;
     CategoriaDao categoriadao;
     SubcategoriaDao subcategoriadao;
+    CodigoDao codigodao;
 
 };
 
