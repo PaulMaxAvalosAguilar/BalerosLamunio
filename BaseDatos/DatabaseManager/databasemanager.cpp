@@ -28,7 +28,8 @@ void DatabaseManager::debugQuery(const QSqlQuery& query)
 DatabaseManager::DatabaseManager(const QString& path) :
     mDatabase(new QSqlDatabase(QSqlDatabase::addDatabase("QSQLITE"))),
     regladao(*mDatabase),
-    categoriadao(*mDatabase)
+    categoriadao(*mDatabase),
+    subcategoriadao(*mDatabase)
 {
     mDatabase->setDatabaseName(path);
     bool openStatus = mDatabase->open();
@@ -36,6 +37,7 @@ DatabaseManager::DatabaseManager(const QString& path) :
 
     regladao.init();
     categoriadao.init();
+    subcategoriadao.init();
 
 }
 

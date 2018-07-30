@@ -29,13 +29,17 @@ SOURCES += main.cpp\
     BaseDatos/ENTITIES/regla.cpp \
     BaseDatos/DAOs/regladao.cpp \
     BaseDatos/ENTITIES/categoria.cpp \
-    BaseDatos/DAOs/categoriadao.cpp
+    BaseDatos/DAOs/categoriadao.cpp \
+    BaseDatos/ENTITIES/subcategoria.cpp \
+    BaseDatos/DAOs/subcategoriadao.cpp
 
 HEADERS  += mainwindow.h \
     BaseDatos/DatabaseManager/databasemanager.h \
     BaseDatos/ENTITIES/regla.h \
     BaseDatos/DAOs/regladao.h \
     BaseDatos/ENTITIES/categoria.h \
-    BaseDatos/DAOs/categoriadao.h
+    BaseDatos/DAOs/categoriadao.h \
+    BaseDatos/ENTITIES/subcategoria.h \
+    BaseDatos/DAOs/subcategoriadao.h
 
 FORMS    += mainwindow.ui
