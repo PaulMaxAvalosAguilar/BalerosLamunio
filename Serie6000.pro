@@ -34,7 +34,8 @@ SOURCES += main.cpp\
     BaseDatos/DAOs/subcategoriadao.cpp \
     BaseDatos/ENTITIES/codigo.cpp \
     BaseDatos/DAOs/codigodao.cpp \
-    BaseDatos/ENTITIES/corebearing.cpp
+    BaseDatos/ENTITIES/corebearing.cpp \
+    BaseDatos/DAOs/corebearingdao.cpp
 
 HEADERS  += mainwindow.h \
     BaseDatos/DatabaseManager/databasemanager.h \
@@ -46,6 +47,7 @@ HEADERS  += mainwindow.h \
     BaseDatos/DAOs/subcategoriadao.h \
     BaseDatos/ENTITIES/codigo.h \
     BaseDatos/DAOs/codigodao.h \
-    BaseDatos/ENTITIES/corebearing.h
+    BaseDatos/ENTITIES/corebearing.h \
+    BaseDatos/DAOs/corebearingdao.h
 
 FORMS    += mainwindow.ui
