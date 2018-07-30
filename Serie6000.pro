@@ -35,7 +35,9 @@ SOURCES += main.cpp\
     BaseDatos/ENTITIES/codigo.cpp \
     BaseDatos/DAOs/codigodao.cpp \
     BaseDatos/ENTITIES/corebearing.cpp \
-    BaseDatos/DAOs/corebearingdao.cpp
+    BaseDatos/DAOs/corebearingdao.cpp \
+    BaseDatos/ENTITIES/coreplusmodifiers.cpp \
+    BaseDatos/DAOs/coreplusmodifiersdao.cpp
 
 HEADERS  += mainwindow.h \
     BaseDatos/DatabaseManager/databasemanager.h \
@@ -48,6 +50,8 @@ HEADERS  += mainwindow.h \
     BaseDatos/ENTITIES/codigo.h \
     BaseDatos/DAOs/codigodao.h \
     BaseDatos/ENTITIES/corebearing.h \
-    BaseDatos/DAOs/corebearingdao.h
+    BaseDatos/DAOs/corebearingdao.h \
+    BaseDatos/ENTITIES/coreplusmodifiers.h \
+    BaseDatos/DAOs/coreplusmodifiersdao.h
 
 FORMS    += mainwindow.ui

@@ -10,6 +10,7 @@
 #include "BaseDatos/DAOs/subcategoriadao.h"
 #include "BaseDatos/DAOs/codigodao.h"
 #include "BaseDatos/DAOs/corebearingdao.h"
+#include "BaseDatos/DAOs/coreplusmodifiersdao.h"
 
 class QSqlQuery;
 class QSqlDatabase;
@@ -35,6 +36,7 @@ public://Add your DAO's as public members
     SubcategoriaDao subcategoriadao;
     CodigoDao codigodao;
     CorebearingDao corebearingdao;
+    CoreplusmodifiersDao coreplusmodifiersdao;
 
 };
 
