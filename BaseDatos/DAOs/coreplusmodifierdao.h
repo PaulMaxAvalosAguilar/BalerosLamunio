@@ -1,28 +1,28 @@
-#ifndef COREPLUSMODIFIERSDAO_H
-#define COREPLUSMODIFIERSDAO_H
+#ifndef COREPLUSMODIFIERDAO_H
+#define COREPLUSMODIFIERDAO_H
 #include <memory>
 #include <vector>
 #include <QObject>
 
 class QSqlDatabase;
-class Coreplusmodifiers;
+class Coreplusmodifier;
 
-class CoreplusmodifiersDao : public QObject
+class CoreplusmodifierDao : public QObject
 {
 
 Q_OBJECT
 
 public:
-    explicit CoreplusmodifiersDao(QSqlDatabase& database);
+    explicit CoreplusmodifierDao(QSqlDatabase& database);
     void init() const;
 
-    void addRecord(Coreplusmodifiers& record);
-    void updateRecord(Coreplusmodifiers& record);
+    void addRecord(Coreplusmodifier& record);
+    void updateRecord(Coreplusmodifier& record);
     void removeRecord(int recordId);
-    std::unique_ptr<std::vector<std::unique_ptr<Coreplusmodifiers>>> getRecord(int recordId) const;
+    std::unique_ptr<std::vector<std::unique_ptr<Coreplusmodifier>>> getRecord(int recordId) const;
 
     void removeAllRecords();
-    std::unique_ptr<std::vector<std::unique_ptr<Coreplusmodifiers>>> getAllRecords() const;
+    std::unique_ptr<std::vector<std::unique_ptr<Coreplusmodifier>>> getAllRecords() const;
 
     void createIndexonColumnFullNombre();
     void createIndexonColumnCoreBearing_ID();

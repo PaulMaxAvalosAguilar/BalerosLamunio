@@ -1,12 +1,12 @@
-#ifndef COREPLUSMODIFIERS_H
-#define COREPLUSMODIFIERS_H
+#ifndef COREPLUSMODIFIER_H
+#define COREPLUSMODIFIER_H
 
 #include <QString>
 
-class Coreplusmodifiers
+class Coreplusmodifier
 {
 public:
-    Coreplusmodifiers();
+    Coreplusmodifier();
 
     int getId() const;
     void setId(int value);
@@ -24,4 +24,4 @@ private:
 
 };
 
-#endif // COREPLUSMODIFIERS_H
+#endif // COREPLUSMODIFIER_H

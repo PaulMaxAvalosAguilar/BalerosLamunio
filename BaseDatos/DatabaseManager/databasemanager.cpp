@@ -32,7 +32,7 @@ DatabaseManager::DatabaseManager(const QString& path) :
     subcategoriadao(*mDatabase),
     codigodao(*mDatabase),
     corebearingdao(*mDatabase),
-    coreplusmodifiersdao(*mDatabase)
+    coreplusmodifierdao(*mDatabase)
 {
     mDatabase->setDatabaseName(path);
     bool openStatus = mDatabase->open();
@@ -43,7 +43,7 @@ DatabaseManager::DatabaseManager(const QString& path) :
     subcategoriadao.init();
     codigodao.init();
     corebearingdao.init();
-    coreplusmodifiersdao.init();
+    coreplusmodifierdao.init();
 
 }
 
