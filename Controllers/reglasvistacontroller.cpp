@@ -1,12 +1,9 @@
 #include "reglasvistacontroller.h"
 
-ReglasVistaController::ReglasVistaController():
-    DatabaseLogicController()
+ReglasVistaController::ReglasVistaController(ReglasVista *vista):
+    DatabaseLogicController(),
+    vista(vista)
 {
 
 }
 
-void ReglasVistaController::configureVista(ReglasVista *vista)
-{
-    this->vista = vista;
-}

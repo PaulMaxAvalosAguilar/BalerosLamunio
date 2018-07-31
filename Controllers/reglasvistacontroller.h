@@ -8,8 +8,8 @@ class ReglasVista;
 class ReglasVistaController : public DatabaseLogicController
 {
 public:
-    ReglasVistaController();
-    void configureVista(ReglasVista *vista);
+    ReglasVistaController(ReglasVista *vista);
+
 
 private:
     ReglasVista * vista;
