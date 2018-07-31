@@ -2,6 +2,7 @@
 #define REGLASVISTA_H
 
 #include <QWidget>
+#include <QTreeWidgetItem>
 
 namespace Ui {
 class ReglasVista;
@@ -14,6 +15,11 @@ class ReglasVista : public QWidget
 public:
     explicit ReglasVista(QWidget *parent = 0);
     ~ReglasVista();
+
+    void clearTreeWidget();
+    void addTopLevelItem(QTreeWidgetItem *item);
+    void addChildToParent(QTreeWidgetItem *parent,
+                          QTreeWidgetItem *child);
 
 private:
     Ui::ReglasVista *ui;

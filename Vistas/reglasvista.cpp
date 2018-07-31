@@ -12,3 +12,18 @@ ReglasVista::~ReglasVista()
 {
     delete ui;
 }
+
+void ReglasVista::clearTreeWidget()
+{
+    ui->treeWidget->clear();
+}
+
+void ReglasVista::addTopLevelItem(QTreeWidgetItem *item)
+{
+    ui->treeWidget->addTopLevelItem(item);
+}
+
+void ReglasVista::addChildToParent(QTreeWidgetItem *parent, QTreeWidgetItem *child)
+{
+    parent->addChild(child);
+}
