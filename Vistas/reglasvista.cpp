@@ -15,6 +15,11 @@ ReglasVista::~ReglasVista()
     delete ui;
 }
 
+void ReglasVista::configureTreeWidget()
+{
+    ui->treeWidget->setColumnCount(1);
+}
+
 void ReglasVista::clearTreeWidget()
 {
     ui->treeWidget->clear();

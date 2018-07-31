@@ -2,9 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "BaseDatos/DatabaseManager/databasemanager.h"
-#include <QTreeWidgetItem>
-#include <vector>
+#include <Vistas/reglasvista.h>
 
 namespace Ui {
 class MainWindow;
@@ -18,13 +16,9 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-
-private slots:
-    void on_treeWidget_clicked(const QModelIndex &index);
-
 private:
     Ui::MainWindow *ui;
-
+    ReglasVista *reglasvista;
 };
 
 #endif // MAINWINDOW_H

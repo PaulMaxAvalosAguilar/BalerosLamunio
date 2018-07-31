@@ -10,6 +10,8 @@ class ReglasVistaController : public DatabaseLogicController
 public:
     ReglasVistaController(ReglasVista *vista);
 
+    void fillParentTree();
+
 
 private:
     ReglasVista * vista;

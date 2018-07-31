@@ -17,6 +17,7 @@ public:
     explicit ReglasVista(QWidget *parent = 0);
     ~ReglasVista();
 
+    void configureTreeWidget();
     void clearTreeWidget();
     void addTopLevelItem(QTreeWidgetItem *item);
     void addChildToParent(QTreeWidgetItem *parent,
