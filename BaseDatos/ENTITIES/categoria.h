@@ -25,6 +25,5 @@ private:
 };
 
 Q_DECLARE_METATYPE(Categoria)
-Q_DECLARE_METATYPE(Categoria *)
 
 #endif // CATEGORIA_H

@@ -39,7 +39,9 @@ SOURCES += main.cpp\
     BaseDatos/ENTITIES/coreplusmodifier.cpp \
     BaseDatos/DAOs/coreplusmodifierdao.cpp \
     BaseDatos/ENTITIES/clasificacion.cpp \
-    BaseDatos/DAOs/clasificaciondao.cpp
+    BaseDatos/DAOs/clasificaciondao.cpp \
+    Vistas/reglas.cpp \
+    Controllers/DatabaseLogic/databaselogiccontroller.cpp
 
 HEADERS  += mainwindow.h \
     BaseDatos/DatabaseManager/databasemanager.h \
@@ -56,6 +58,9 @@ HEADERS  += mainwindow.h \
     BaseDatos/ENTITIES/coreplusmodifier.h \
     BaseDatos/DAOs/coreplusmodifierdao.h \
     BaseDatos/ENTITIES/clasificacion.h \
-    BaseDatos/DAOs/clasificaciondao.h
+    BaseDatos/DAOs/clasificaciondao.h \
+    Vistas/reglas.h \
+    Controllers/DatabaseLogic/databaselogiccontroller.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    Vistas/reglas.ui

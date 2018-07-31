@@ -99,13 +99,15 @@ unique_ptr<vector<unique_ptr<Categoria>>> CategoriaDao::getAllRecords() const
     return list;
 }
 
-void CategoriaDao::createIndexonColumnNombre(){
+void CategoriaDao::createIndexonColumnNombre()const
+{
     QSqlQuery query("create index nombre on Categoria(nombre)", mDatabase);
     query.exec();
     DatabaseManager::debugQuery(query);
 }
 
-void CategoriaDao::createIndexonColumnRegla_ID(){
+void CategoriaDao::createIndexonColumnRegla_ID() const
+{
     QSqlQuery query("create index regla_ID on Categoria(regla_ID)", mDatabase);
     query.exec();
     DatabaseManager::debugQuery(query);

@@ -22,6 +22,5 @@ private:
 };
 
 Q_DECLARE_METATYPE(Regla)
-Q_DECLARE_METATYPE(Regla *)
 
 #endif // REGLA_H
