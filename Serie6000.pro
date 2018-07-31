@@ -40,8 +40,9 @@ SOURCES += main.cpp\
     BaseDatos/DAOs/coreplusmodifierdao.cpp \
     BaseDatos/ENTITIES/clasificacion.cpp \
     BaseDatos/DAOs/clasificaciondao.cpp \
-    Vistas/reglas.cpp \
-    Controllers/DatabaseLogic/databaselogiccontroller.cpp
+    Controllers/DatabaseLogic/databaselogiccontroller.cpp \
+    Controllers/reglasvistacontroller.cpp \
+    Vistas/reglasvista.cpp
 
 HEADERS  += mainwindow.h \
     BaseDatos/DatabaseManager/databasemanager.h \
@@ -59,8 +60,9 @@ HEADERS  += mainwindow.h \
     BaseDatos/DAOs/coreplusmodifierdao.h \
     BaseDatos/ENTITIES/clasificacion.h \
     BaseDatos/DAOs/clasificaciondao.h \
-    Vistas/reglas.h \
-    Controllers/DatabaseLogic/databaselogiccontroller.h
+    Controllers/DatabaseLogic/databaselogiccontroller.h \
+    Controllers/reglasvistacontroller.h \
+    Vistas/reglasvista.h
 
 FORMS    += mainwindow.ui \
-    Vistas/reglas.ui
+    Vistas/reglasvista.ui
