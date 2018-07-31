@@ -2,6 +2,7 @@
 #define REGLA_H
 
 #include <QString>
+#include <QMetaType>
 
 class Regla
 {
@@ -19,5 +20,8 @@ private:
     int id;
     QString nombre;
 };
+
+Q_DECLARE_METATYPE(Regla)
+Q_DECLARE_METATYPE(Regla *)
 
 #endif // REGLA_H

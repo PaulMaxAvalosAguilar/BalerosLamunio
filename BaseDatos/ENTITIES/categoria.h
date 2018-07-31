@@ -2,7 +2,7 @@
 #define CATEGORIA_H
 
 #include <QString>
-
+#include <QMetaType>
 
 class Categoria
 {
@@ -23,5 +23,8 @@ private:
     QString nombre;
     int regla_ID;
 };
+
+Q_DECLARE_METATYPE(Categoria)
+Q_DECLARE_METATYPE(Categoria *)
 
 #endif // CATEGORIA_H
