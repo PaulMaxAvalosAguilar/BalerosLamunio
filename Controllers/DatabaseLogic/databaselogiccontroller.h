@@ -12,6 +12,7 @@ class DatabaseLogicController
 {
 public:
     DatabaseLogicController();
+    virtual ~DatabaseLogicController();
 
     void addRegla(QString nombre);
     void updateRegla(int id, QString nombre);

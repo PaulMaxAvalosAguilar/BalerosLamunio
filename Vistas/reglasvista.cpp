@@ -3,7 +3,8 @@
 
 ReglasVista::ReglasVista(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::ReglasVista)
+    ui(new Ui::ReglasVista),
+    controlador()
 {
     ui->setupUi(this);
 }
@@ -11,6 +12,11 @@ ReglasVista::ReglasVista(QWidget *parent) :
 ReglasVista::~ReglasVista()
 {
     delete ui;
+}
+
+void ReglasVista::configureController()
+{
+    controlador.configureVista(this);
 }
 
 void ReglasVista::clearTreeWidget()

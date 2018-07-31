@@ -6,6 +6,11 @@ DatabaseLogicController::DatabaseLogicController():
 
 }
 
+DatabaseLogicController::~DatabaseLogicController()
+{
+
+}
+
 void DatabaseLogicController::addRegla(QString nombre)
 {
 
