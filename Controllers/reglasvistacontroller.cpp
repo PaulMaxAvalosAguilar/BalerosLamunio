@@ -6,12 +6,12 @@ ReglasVistaController::ReglasVistaController(ReglasVista *vista):
     DatabaseLogicController(),
     vista(vista)
 {
-
+    fillParentTree();
 }
 
 void ReglasVistaController::fillParentTree()
 {
-    QTreeWidgetItem *item = new QTreeWidgetItem();
+    item = new QTreeWidgetItem();
     item->setText(0, "Reglas");
     vista->addTopLevelItem(item);
 }

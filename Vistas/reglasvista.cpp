@@ -1,5 +1,6 @@
 #include "reglasvista.h"
 #include "ui_reglasvista.h"
+#include <QDebug>
 
 ReglasVista::ReglasVista(QWidget *parent) :
     QWidget(parent),
@@ -7,7 +8,7 @@ ReglasVista::ReglasVista(QWidget *parent) :
     controlador(this)
 {
     ui->setupUi(this);
-
+    configureTreeWidget();
 }
 
 ReglasVista::~ReglasVista()

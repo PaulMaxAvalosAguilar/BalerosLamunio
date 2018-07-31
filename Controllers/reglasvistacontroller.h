@@ -2,6 +2,7 @@
 #define REGLASVISTACONTROLLER_H
 
 #include "Controllers/DatabaseLogic/databaselogiccontroller.h"
+#include <QTreeWidgetItem>
 
 class ReglasVista;
 
@@ -15,6 +16,7 @@ public:
 
 private:
     ReglasVista * vista;
+    QTreeWidgetItem *item;
 };
 
 #endif // REGLASVISTACONTROLLER_H
