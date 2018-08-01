@@ -37,7 +37,7 @@ public:
     void removeCodigo(int id);
     std::unique_ptr<std::vector<std::unique_ptr<Codigo>>> getCodigo();
 
-private:
+protected:
     DatabaseManager &man;
 };
 

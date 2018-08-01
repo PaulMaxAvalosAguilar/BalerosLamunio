@@ -53,6 +53,12 @@ std::unique_ptr<std::vector<std::unique_ptr<Categoria> > > DatabaseLogicControll
     return man.categoriadao.getAllRecords();
 }
 
+std::unique_ptr<std::vector<std::unique_ptr<Categoria> > > DatabaseLogicController::getCategoriasByReglasId(int reglaId)
+{
+    //Leer todas las categorías por Regla
+    return man.categoriadao.getAllRecordsByRegla(regla);
+}
+
 void DatabaseLogicController::addSubcategoria(QString nombre, int categoriaid)
 {
 

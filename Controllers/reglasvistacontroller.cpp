@@ -9,6 +9,7 @@ ReglasVistaController::ReglasVistaController(ReglasVista *vista):
 {
     fillParentTree();
     addChildren();
+    man.regladao.createIndexonColumnNombre();
 }
 
 void ReglasVistaController::fillParentTree()
@@ -45,7 +46,7 @@ void ReglasVistaController::addChildren()
 
             //Leer todas las categorías de la base de datos
             unique_ptr<vector<unique_ptr<Categoria>>> listaCategorias =
-                    std::move(getCategorias());
+                    std::move(this->getCategoriasByReglasId(regla->getId()));
 
             //checar que al lista de categorias no este vacía
             if(!listaCategorias->empty()){
