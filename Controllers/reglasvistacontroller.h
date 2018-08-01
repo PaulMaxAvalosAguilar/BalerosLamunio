@@ -12,10 +12,12 @@ public:
     ReglasVistaController(ReglasVista *vista);
 
     void fillParentTree();
+    void addChildren();
 
 
 private:
     ReglasVista * vista;
+    QTreeWidgetItem *parentitem;
 
 };
 
