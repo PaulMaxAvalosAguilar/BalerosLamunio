@@ -53,3 +53,45 @@ std::unique_ptr<std::vector<std::unique_ptr<Categoria> > > DatabaseLogicControll
     return man.categoriadao.getAllRecords();
 }
 
+void DatabaseLogicController::addSubcategoria(QString nombre, int categoriaid)
+{
+
+}
+
+void DatabaseLogicController::updateSubcategoria(int id, QString nombre, int categoriaid)
+{
+
+}
+
+void DatabaseLogicController::removeSubcategoria(int id)
+{
+
+}
+
+std::unique_ptr<std::vector<std::unique_ptr<Subcategoria> > > DatabaseLogicController::getSubcategorias()
+{
+ //Leer todas las subcategorias
+    return man.subcategoriadao.getAllRecords();
+}
+
+void DatabaseLogicController::addCodigo(QString caracteres, int subcategoriaid)
+{
+
+}
+
+void DatabaseLogicController::updateCodigo(int id, QString caracteres, int subcategoriaid)
+{
+
+}
+
+void DatabaseLogicController::removeCodigo(int id)
+{
+
+}
+
+std::unique_ptr<std::vector<std::unique_ptr<Codigo> > > DatabaseLogicController::getCodigo()
+{
+    //Leer todos los codigos
+    return man.codigodao.getAllRecords();
+}
+

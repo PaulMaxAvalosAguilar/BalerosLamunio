@@ -27,6 +27,16 @@ public:
     void removeCategoria(int id);
     std::unique_ptr<std::vector<std::unique_ptr<Categoria>>> getCategorias();
 
+    void addSubcategoria(QString nombre, int categoriaid);
+    void updateSubcategoria(int id, QString nombre, int categoriaid);
+    void removeSubcategoria(int id);
+    std::unique_ptr<std::vector<std::unique_ptr<Subcategoria>>> getSubcategorias();
+
+    void addCodigo(QString caracteres, int subcategoriaid);
+    void updateCodigo(int id,  QString caracteres, int subcategoriaid);
+    void removeCodigo(int id);
+    std::unique_ptr<std::vector<std::unique_ptr<Codigo>>> getCodigo();
+
 private:
     DatabaseManager &man;
 };
