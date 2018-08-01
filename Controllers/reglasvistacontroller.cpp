@@ -56,6 +56,16 @@ void ReglasVistaController::addChildren()
                 for(uint i = 0; i < listaCategorias->size();i++){
 
                 //Crear nuevo objeto de
+                Categoria *categoria = new Categoria();
+                categoria->setNombre(listaCategorias->at(i)->getNombre());
+                categoria->setId(listaCategorias->at(i)->getId());
+
+                //Crear QTreeWidgetItem para Categoria
+                QTreeWidgetItem *categoriaItem = new QTreeWidgetItem();
+                categoriaItem->setData(0, Qt::UserRole, QVariant::fromValue(*categoria));
+                categoriaItem->setText(0, categoria->getNombre());
+
+                vista->addChildToParent(reglasItem, categoriaItem);
 
                 }
             }

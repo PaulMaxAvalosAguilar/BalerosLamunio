@@ -26,6 +26,8 @@ public:
     void updateCategoria(int id, QString nombre, int reglaid);
     void removeCategoria(int id);
     std::unique_ptr<std::vector<std::unique_ptr<Categoria>>> getCategorias();
+    std::unique_ptr<std::vector<std::unique_ptr<Categoria>>>
+    getCategoriasByReglasId(int reglaId);
 
     void addSubcategoria(QString nombre, int categoriaid);
     void updateSubcategoria(int id, QString nombre, int categoriaid);
