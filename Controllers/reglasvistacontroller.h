@@ -16,7 +16,7 @@ public:
 
 private:
     ReglasVista * vista;
-    QTreeWidgetItem *item;
+
 };
 
 #endif // REGLASVISTACONTROLLER_H

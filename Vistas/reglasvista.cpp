@@ -4,11 +4,13 @@
 
 ReglasVista::ReglasVista(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::ReglasVista),
-    controlador(this)
+    ui(new Ui::ReglasVista)
 {
     ui->setupUi(this);
+    controlador.reset(new ReglasVistaController(this));
+
     configureTreeWidget();
+
 }
 
 ReglasVista::~ReglasVista()
@@ -35,3 +37,7 @@ void ReglasVista::addChildToParent(QTreeWidgetItem *parent, QTreeWidgetItem *chi
 {
     parent->addChild(child);
 }
+
+
+
+

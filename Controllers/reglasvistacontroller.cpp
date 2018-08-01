@@ -11,8 +11,8 @@ ReglasVistaController::ReglasVistaController(ReglasVista *vista):
 
 void ReglasVistaController::fillParentTree()
 {
-    item = new QTreeWidgetItem();
-    item->setText(0, "Reglas");
+    QTreeWidgetItem *item = new QTreeWidgetItem();
+    item->setText(0,"Reglas");
     vista->addTopLevelItem(item);
 }
 

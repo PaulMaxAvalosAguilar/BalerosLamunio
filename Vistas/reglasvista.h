@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QTreeWidgetItem>
 #include "Controllers/reglasvistacontroller.h"
+#include <memory>
 
 namespace Ui {
 class ReglasVista;
@@ -11,6 +12,7 @@ class ReglasVista;
 
 class ReglasVista : public QWidget
 {
+
     Q_OBJECT
 
 public:
@@ -25,7 +27,8 @@ public:
 
 private:
     Ui::ReglasVista *ui;
-    ReglasVistaController controlador;
+    std::unique_ptr<ReglasVistaController> controlador;
+
 };
 
 #endif // REGLASVISTA_H
