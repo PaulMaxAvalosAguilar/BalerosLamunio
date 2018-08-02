@@ -103,6 +103,5 @@ void ReglasVistaController::addChildren()
             }
         }
     }
-
 }
 
