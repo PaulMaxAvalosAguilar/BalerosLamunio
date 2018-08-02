@@ -1,8 +1,8 @@
 #include "reglasvistacontroller.h"
 #include "Vistas/reglasvista.h"
-#include "Vistas/Dialog/aniadircategoriadialog.h"
-#include "Vistas/Dialog/aniadirregladialog.h"
-#include "Vistas/Dialog/aniadirsubcategoriadialog.h"
+#include "Vistas/Dialog/categoriadialog.h"
+#include "Vistas/Dialog/regladialog.h"
+#include "Vistas/Dialog/subcategoriadialog.h"
 #include <QDebug>
 
 using namespace std;
@@ -17,12 +17,15 @@ ReglasVistaController::ReglasVistaController(ReglasVista *vista):
 
     //Regla Signals
     connect(&man.regladao, &ReglaDao::addedRecord, this, &ReglasVistaController::addChildren);
+    connect(&man.regladao, &ReglaDao::updatedRecord, this, &ReglasVistaController::addChildren);
 
     //Categoria Signals
     connect(&man.categoriadao, &CategoriaDao::addedRecord, this, &ReglasVistaController::addChildren);
+    connect(&man.categoriadao, &CategoriaDao::updatedRecord, this, &ReglasVistaController::addChildren);
 
     //Subcategoria Signals
     connect(&man.subcategoriadao, &SubcategoriaDao::addedRecord, this, &ReglasVistaController::addChildren);
+    connect(&man.subcategoriadao, &SubcategoriaDao::updatedRecord, this, &ReglasVistaController::addChildren);
 }
 
 
@@ -128,7 +131,7 @@ void ReglasVistaController::showAddDialog(const QModelIndex &index)
 
         int result;
 
-        AniadirCategoriaDialog dal;
+        CategoriaDialog dal;
         dal.setWindowTitle("Añadir categoria");
         result = dal.exec();
 
@@ -142,7 +145,7 @@ void ReglasVistaController::showAddDialog(const QModelIndex &index)
         Categoria subcategoria = index.data(Qt::UserRole).value<Categoria>();
 
         int result;
-        AniadirSubcategoriaDialog dal;
+        SubcategoriaDialog dal;
         dal.setWindowTitle("Añadir subcategoria");
         result = dal.exec();
 
@@ -152,10 +155,10 @@ void ReglasVistaController::showAddDialog(const QModelIndex &index)
         addSubcategoria(dal.getNombre(), subcategoria.getId());
 
     }else if(index.data(Qt::UserRole).canConvert<Subcategoria>()){
-        qDebug()<<"Puede convertir a subcategoria";
+
     }else{
         int result;
-        AniadirReglaDialog dal;
+        ReglaDialog dal;
         dal.setWindowTitle("Añadir regla");
         result = dal.exec();
 
@@ -165,5 +168,51 @@ void ReglasVistaController::showAddDialog(const QModelIndex &index)
         addRegla(dal.getNombre());
     }
 }
+
+void ReglasVistaController::showupdateDialog(const QModelIndex &index)
+{
+    if(index.data(Qt::UserRole).canConvert<Regla>()){
+
+        Regla regla = index.data(Qt::UserRole).value<Regla>();
+
+        int result;
+
+        ReglaDialog dal;
+        dal.setWindowTitle("Actualizar regla");
+        dal.setNombre(regla.getNombre());
+        result = dal.exec();
+
+        if(result == QDialog::Rejected)
+            return;
+
+
+    }else if(index.data(Qt::UserRole).canConvert<Categoria>()){
+        Categoria categoria = index.data(Qt::UserRole).value<Categoria>();
+
+        int result;
+        CategoriaDialog dal;
+        dal.setWindowTitle("Actualizar categoria");
+        dal.setNombre(categoria.getNombre());
+        result = dal.exec();
+
+        if(result == QDialog::Rejected)
+            return;
+
+    }else if(index.data(Qt::UserRole).canConvert<Subcategoria>()){
+        Subcategoria subcategoria = index.data(Qt::UserRole).value<Subcategoria>();
+
+        int result;
+        CategoriaDialog dal;
+        dal.setWindowTitle("Actualizar subcategoria");
+        dal.setNombre(subcategoria.getNombre());
+        result = dal.exec();
+
+        if(result == QDialog::Rejected)
+            return;
+    }else{
+
+    }
+}
+
 
 

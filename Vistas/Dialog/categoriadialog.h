@@ -4,17 +4,18 @@
 #include <QDialog>
 
 namespace Ui {
-class AniadirCategoriaDialog;
+class CategoriaDialog;
 }
 
-class AniadirCategoriaDialog : public QDialog
+class CategoriaDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit AniadirCategoriaDialog(QWidget *parent = 0);
-    ~AniadirCategoriaDialog();
+    explicit CategoriaDialog(QWidget *parent = 0);
+    ~CategoriaDialog();
     QString getNombre();
+    void setNombre(QString nombre);
 
 private slots:
     void on_buttonBox_accepted();
@@ -22,7 +23,7 @@ private slots:
     void on_buttonBox_rejected();
 
 private:
-    Ui::AniadirCategoriaDialog *ui;
+    Ui::CategoriaDialog *ui;
 };
 
 #endif // ANIADIRCATEGORIADIALOG_H

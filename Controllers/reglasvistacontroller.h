@@ -17,6 +17,7 @@ public slots:
 
 public:
     void showAddDialog(const QModelIndex &index);
+    void showupdateDialog(const QModelIndex &index);
 
 
 private:

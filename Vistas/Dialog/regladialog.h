@@ -4,17 +4,18 @@
 #include <QDialog>
 
 namespace Ui {
-class AniadirReglaDialog;
+class ReglaDialog;
 }
 
-class AniadirReglaDialog : public QDialog
+class ReglaDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit AniadirReglaDialog(QWidget *parent = 0);
-    ~AniadirReglaDialog();
+    explicit ReglaDialog(QWidget *parent = 0);
+    ~ReglaDialog();
     QString getNombre();
+    void setNombre(QString nombre);
 
 private slots:
     void on_buttonBox_accepted();
@@ -22,7 +23,7 @@ private slots:
     void on_buttonBox_rejected();
 
 private:
-    Ui::AniadirReglaDialog *ui;
+    Ui::ReglaDialog *ui;
 };
 
 #endif // ANIADIRREGLADIALOG_H

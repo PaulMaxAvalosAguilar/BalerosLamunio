@@ -4,17 +4,18 @@
 #include <QDialog>
 
 namespace Ui {
-class AniadirSubcategoriaDialog;
+class SubcategoriaDialog;
 }
 
-class AniadirSubcategoriaDialog : public QDialog
+class SubcategoriaDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit AniadirSubcategoriaDialog(QWidget *parent = 0);
-    ~AniadirSubcategoriaDialog();
+    explicit SubcategoriaDialog(QWidget *parent = 0);
+    ~SubcategoriaDialog();
     QString getNombre();
+    void setNombre(QString nombre);
 
 private slots:
     void on_buttonBox_accepted();
@@ -22,7 +23,7 @@ private slots:
     void on_buttonBox_rejected();
 
 private:
-    Ui::AniadirSubcategoriaDialog *ui;
+    Ui::SubcategoriaDialog *ui;
 };
 
 #endif // ANIADIRSUBCATEGORIADIALOG_H

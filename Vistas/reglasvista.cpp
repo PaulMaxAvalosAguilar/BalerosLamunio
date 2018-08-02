@@ -47,7 +47,7 @@ void ReglasVista::on_addpB_clicked()
 
 void ReglasVista::on_updatepB_clicked()
 {
-
+    controlador->showupdateDialog(ui->treeWidget->currentIndex());
 }
 
 void ReglasVista::on_removepB_clicked()
