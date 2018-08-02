@@ -227,14 +227,15 @@ void ReglasVistaController::removeAction(const QModelIndex &index)
     if(index.data(Qt::UserRole).canConvert<Regla>()){
 
         Regla regla = index.data(Qt::UserRole).value<Regla>();
-
-
+        removeRegla(regla.getId());
 
     }else if(index.data(Qt::UserRole).canConvert<Categoria>()){
         Categoria categoria = index.data(Qt::UserRole).value<Categoria>();
+        removeCategoria(categoria.getId());
 
     }else if(index.data(Qt::UserRole).canConvert<Subcategoria>()){
         Subcategoria subcategoria = index.data(Qt::UserRole).value<Subcategoria>();
+        removeSubcategoria(subcategoria.getId());
 
     }else{
 

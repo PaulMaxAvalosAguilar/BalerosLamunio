@@ -52,5 +52,5 @@ void ReglasVista::on_updatepB_clicked()
 
 void ReglasVista::on_removepB_clicked()
 {
-
+    controlador->removeAction(ui->treeWidget->currentIndex());
 }
