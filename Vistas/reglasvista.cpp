@@ -41,3 +41,8 @@ void ReglasVista::addChildToParent(QTreeWidgetItem *parent, QTreeWidgetItem *chi
 
 
 
+
+void ReglasVista::on_treeWidget_clicked(const QModelIndex &index)
+{
+    controlador->showAddDialog(index);
+}

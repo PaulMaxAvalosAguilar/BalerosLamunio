@@ -3,20 +3,20 @@
 
 using namespace std;
 
+
 ReglasVistaController::ReglasVistaController(ReglasVista *vista):
     DatabaseLogicController(),
     vista(vista)
 {
     fillParentTree();
     addChildren();
-    man.regladao.createIndexonColumnNombre();
 }
 
 void ReglasVistaController::fillParentTree()
 {
-    parentitem = new QTreeWidgetItem();
-    parentitem->setText(0,"Reglas");
-    vista->addTopLevelItem(parentitem);
+    topItem = new QTreeWidgetItem();
+    topItem->setText(0,"Reglas");
+    vista->addTopLevelItem(topItem);
 }
 
 void ReglasVistaController::addChildren()
@@ -34,15 +34,15 @@ void ReglasVistaController::addChildren()
 
             //Crear nueva objeto de clase regla
             Regla *regla = new Regla();
-            regla->setNombre(listaReglas->at(i)->getNombre());
             regla->setId(listaReglas->at(i)->getId());
+            regla->setNombre(listaReglas->at(i)->getNombre());
 
             //Crear QTreeWidgetItem para Regla
             QTreeWidgetItem *reglasItem = new QTreeWidgetItem();
             reglasItem->setData(0, Qt::UserRole,QVariant::fromValue(*regla));
             reglasItem->setText(0, regla->getNombre());
 
-            vista->addChildToParent(parentitem, reglasItem);
+            vista->addChildToParent(topItem, reglasItem);
 
 
 
@@ -60,8 +60,9 @@ void ReglasVistaController::addChildren()
 
                     //Crear nuevo objeto de clase categoria
                     Categoria *categoria = new Categoria();
-                    categoria->setNombre(listaCategorias->at(i)->getNombre());
                     categoria->setId(listaCategorias->at(i)->getId());
+                    categoria->setNombre(listaCategorias->at(i)->getNombre());                    
+                    categoria->setRegla_ID(regla->getId());
 
                     //Crear QTreeWidgetItem para Categoria
                     QTreeWidgetItem *categoriaItem = new QTreeWidgetItem();
@@ -86,8 +87,9 @@ void ReglasVistaController::addChildren()
                         for(uint i = 0; i < listaSubCategorias->size(); i++){
                             //Crear nuevo objeto de clase subcategoria
                             Subcategoria *subcategoria = new Subcategoria();
-                            subcategoria->setNombre(listaSubCategorias->at(i)->getNombre());
                             subcategoria->setId(listaSubCategorias->at(i)->getId());
+                            subcategoria->setNombre(listaSubCategorias->at(i)->getNombre());
+                            subcategoria->setCategoria_ID(categoria->getId());
 
                             //Crear QTreeWidgetItem para subcategoria
                             QTreeWidgetItem *subcategoriaItem = new QTreeWidgetItem();
@@ -97,11 +99,15 @@ void ReglasVistaController::addChildren()
                             vista->addChildToParent(categoriaItem, subcategoriaItem);
                         }
                     }
-
-
                 }
             }
         }
     }
 }
+
+void ReglasVistaController::showAddDialog(const QModelIndex &index)
+{
+    if(index.data(Qt::UserRole).canConvert<Regla>())
+}
+
 

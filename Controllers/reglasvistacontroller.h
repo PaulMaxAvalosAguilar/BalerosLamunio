@@ -13,11 +13,14 @@ public:
 
     void fillParentTree();
     void addChildren();
+    void showAddDialog(const QModelIndex &index);
 
 
 private:
     ReglasVista * vista;
-    QTreeWidgetItem *parentitem;
+    QTreeWidgetItem *topItem;
+
+public:
 
 };
 

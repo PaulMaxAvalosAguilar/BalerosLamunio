@@ -25,6 +25,9 @@ public:
     void addChildToParent(QTreeWidgetItem *parent,
                           QTreeWidgetItem *child);
 
+private slots:
+    void on_treeWidget_clicked(const QModelIndex &index);
+
 private:
     Ui::ReglasVista *ui;
     std::unique_ptr<ReglasVistaController> controlador;
