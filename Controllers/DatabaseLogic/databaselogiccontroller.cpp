@@ -32,7 +32,20 @@ void DatabaseLogicController::addRegla(QString nombre)
 
 void DatabaseLogicController::updateRegla(int id, QString nombre)
 {
+    //Check not null values
+    if(nombre.isEmpty()){
+     QMessageBox box;
+     box.setText("No has ingresado un nombre");
+     box.exec();
+     return;
+    }
 
+    //Build Object
+
+    Regla regla;
+    regla.setId(id);
+    regla.setNombre(nombre);
+    man.regladao.updateRecord(regla);
 }
 
 void DatabaseLogicController::removeRegla(int id)
@@ -66,7 +79,21 @@ void DatabaseLogicController::addCategoria(QString nombre, int reglaid)
 
 void DatabaseLogicController::updateCategoria(int id, QString nombre, int reglaid)
 {
+    //Check not null values
+    if(nombre.isEmpty()){
+     QMessageBox box;
+     box.setText("No has ingresado un nombre");
+     box.exec();
+     return;
+    }
 
+    //Build Object
+
+    Categoria categoria;
+    categoria.setId(id);
+    categoria.setNombre(nombre);
+    categoria.setRegla_ID(reglaid);
+    man.categoriadao.updateRecord(categoria);
 }
 
 void DatabaseLogicController::removeCategoria(int id)
@@ -106,7 +133,21 @@ void DatabaseLogicController::addSubcategoria(QString nombre, int categoriaid)
 
 void DatabaseLogicController::updateSubcategoria(int id, QString nombre, int categoriaid)
 {
+    //Check not null values
+    if(nombre.isEmpty()){
+     QMessageBox box;
+     box.setText("No has ingresado un nombre");
+     box.exec();
+     return;
+    }
 
+    //Build Object
+
+    Subcategoria subcategoria;
+    subcategoria.setId(id);
+    subcategoria.setNombre(nombre);
+    subcategoria.setCategoria_ID(categoriaid);
+    man.subcategoriadao.updateRecord(subcategoria);
 }
 
 void DatabaseLogicController::removeSubcategoria(int id)

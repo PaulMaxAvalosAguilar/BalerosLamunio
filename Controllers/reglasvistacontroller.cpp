@@ -142,7 +142,7 @@ void ReglasVistaController::showAddDialog(const QModelIndex &index)
 
 
     }else if(index.data(Qt::UserRole).canConvert<Categoria>()){
-        Categoria subcategoria = index.data(Qt::UserRole).value<Categoria>();
+        Categoria categoria = index.data(Qt::UserRole).value<Categoria>();
 
         int result;
         SubcategoriaDialog dal;
@@ -152,7 +152,7 @@ void ReglasVistaController::showAddDialog(const QModelIndex &index)
         if(result == QDialog::Rejected)
             return;
 
-        addSubcategoria(dal.getNombre(), subcategoria.getId());
+        addSubcategoria(dal.getNombre(), categoria.getId());
 
     }else if(index.data(Qt::UserRole).canConvert<Subcategoria>()){
 
@@ -185,6 +185,7 @@ void ReglasVistaController::showupdateDialog(const QModelIndex &index)
         if(result == QDialog::Rejected)
             return;
 
+        updateRegla(regla.getId(), dal.getNombre());
 
     }else if(index.data(Qt::UserRole).canConvert<Categoria>()){
         Categoria categoria = index.data(Qt::UserRole).value<Categoria>();
@@ -198,6 +199,8 @@ void ReglasVistaController::showupdateDialog(const QModelIndex &index)
         if(result == QDialog::Rejected)
             return;
 
+        updateCategoria(categoria.getId(), dal.getNombre(), categoria.getRegla_ID());
+
     }else if(index.data(Qt::UserRole).canConvert<Subcategoria>()){
         Subcategoria subcategoria = index.data(Qt::UserRole).value<Subcategoria>();
 
@@ -209,6 +212,8 @@ void ReglasVistaController::showupdateDialog(const QModelIndex &index)
 
         if(result == QDialog::Rejected)
             return;
+
+        updateSubcategoria(subcategoria.getId(), dal.getNombre(), subcategoria.getCategoria_ID());
     }else{
 
     }
