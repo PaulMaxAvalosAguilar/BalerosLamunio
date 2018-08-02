@@ -76,9 +76,16 @@ void DatabaseLogicController::removeSubcategoria(int id)
 
 std::unique_ptr<std::vector<std::unique_ptr<Subcategoria> > > DatabaseLogicController::getSubcategorias()
 {
- //Leer todas las subcategorias
+    //Leer todas las subcategorias
     return man.subcategoriadao.getAllRecords();
 }
+
+std::unique_ptr<std::vector<std::unique_ptr<Subcategoria> > > DatabaseLogicController::getSubcategoriasByCategoriaId(int categoriaId)
+{
+    //Leer todas las subcategorias por categoria
+    return man.subcategoriadao.getAllRecordsbyCategoria(categoriaId);
+}
+
 
 void DatabaseLogicController::addCodigo(QString caracteres, int subcategoriaid)
 {
@@ -95,9 +102,15 @@ void DatabaseLogicController::removeCodigo(int id)
 
 }
 
-std::unique_ptr<std::vector<std::unique_ptr<Codigo> > > DatabaseLogicController::getCodigo()
+std::unique_ptr<std::vector<std::unique_ptr<Codigo> > > DatabaseLogicController::getCodigos()
 {
     //Leer todos los codigos
     return man.codigodao.getAllRecords();
+}
+
+std::unique_ptr<std::vector<std::unique_ptr<Codigo> > > DatabaseLogicController::getCodigosbySubcategoriaId(int subcategoriaId)
+{
+    //Leer todos los códigos por subcategoria
+    return man.codigodao.getAllRecordsbySubcategoria(subcategoriaId);
 }
 

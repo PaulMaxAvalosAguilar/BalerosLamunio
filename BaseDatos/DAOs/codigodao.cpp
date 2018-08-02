@@ -99,6 +99,24 @@ unique_ptr<vector<unique_ptr<Codigo>>> CodigoDao::getAllRecords() const
     return list;
 }
 
+std::unique_ptr<std::vector<std::unique_ptr<Codigo> > > CodigoDao::getAllRecordsbySubcategoria(int recordId) const
+{
+    QSqlQuery query(mDatabase);
+    query.prepare("SELECT * FROM Codigo WHERE subcategoria_ID = (:id)");
+    query.bindValue(":id", recordId);
+    query.exec();
+    DatabaseManager::debugQuery(query);
+    unique_ptr<vector<unique_ptr<Codigo>>> list(new vector<unique_ptr<Codigo>>());
+    while(query.next()) {
+        std::unique_ptr<Codigo> codigo(new Codigo());
+        codigo->setId(query.value("id").toInt());
+        codigo->setCaracteres(query.value("caracteres").toString());
+        codigo->setSubcategoria_ID(query.value("subcategoria_ID").toInt());
+        list->push_back(move(codigo));
+    }
+    return list;
+}
+
 void CodigoDao::createIndexonColumnCaracteres(){
     QSqlQuery query("create index caracteres on Codigo(caracteres)", mDatabase);
     query.exec();

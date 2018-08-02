@@ -99,6 +99,24 @@ unique_ptr<vector<unique_ptr<Subcategoria>>> SubcategoriaDao::getAllRecords() co
     return list;
 }
 
+std::unique_ptr<std::vector<std::unique_ptr<Subcategoria> > > SubcategoriaDao::getAllRecordsbyCategoria(int recordId)
+{
+    QSqlQuery query(mDatabase);
+    query.prepare("SELECT * FROM Subcategoria WHERE categoria_ID = (:id)");
+    query.bindValue(":id", recordId);
+    query.exec();
+    DatabaseManager::debugQuery(query);
+    unique_ptr<vector<unique_ptr<Subcategoria>>> list(new vector<unique_ptr<Subcategoria>>());
+    while(query.next()) {
+        std::unique_ptr<Subcategoria> subcategoria(new Subcategoria());
+        subcategoria->setId(query.value("id").toInt());
+        subcategoria->setNombre(query.value("nombre").toString());
+        subcategoria->setCategoria_ID(query.value("categoria_ID").toInt());
+        list->push_back(move(subcategoria));
+    }
+    return list;
+}
+
 void SubcategoriaDao::createIndexonColumnNombre(){
     QSqlQuery query("create index nombre on Subcategoria(nombre)", mDatabase);
     query.exec();

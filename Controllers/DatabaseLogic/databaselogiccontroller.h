@@ -33,11 +33,15 @@ public:
     void updateSubcategoria(int id, QString nombre, int categoriaid);
     void removeSubcategoria(int id);
     std::unique_ptr<std::vector<std::unique_ptr<Subcategoria>>> getSubcategorias();
+    std::unique_ptr<std::vector<std::unique_ptr<Subcategoria>>>
+    getSubcategoriasByCategoriaId(int categoriaId);
 
     void addCodigo(QString caracteres, int subcategoriaid);
     void updateCodigo(int id,  QString caracteres, int subcategoriaid);
     void removeCodigo(int id);
-    std::unique_ptr<std::vector<std::unique_ptr<Codigo>>> getCodigo();
+    std::unique_ptr<std::vector<std::unique_ptr<Codigo>>> getCodigos();
+    std::unique_ptr<std::vector<std::unique_ptr<Codigo>>>
+    getCodigosbySubcategoriaId(int subcategoriaId);
 
 protected:
     DatabaseManager &man;

@@ -44,28 +44,60 @@ void ReglasVistaController::addChildren()
 
             vista->addChildToParent(parentitem, reglasItem);
 
+
+
+
             //Leer todas las categorías de la base de datos
             unique_ptr<vector<unique_ptr<Categoria>>> listaCategorias =
-                    std::move(this->getCategoriasByReglasId(regla->getId()));
+                    std::move(getCategoriasByReglasId(regla->getId()));
 
-            //checar que al lista de categorias no este vacía
+            //checar que la lista de categorias no este vacía
             if(!listaCategorias->empty()){
 
                 //Por cada regla crear un objeto de tipo regla y
                 //añadirlo a QTreeWidgetItem
                 for(uint i = 0; i < listaCategorias->size();i++){
 
-                //Crear nuevo objeto de
-                Categoria *categoria = new Categoria();
-                categoria->setNombre(listaCategorias->at(i)->getNombre());
-                categoria->setId(listaCategorias->at(i)->getId());
+                    //Crear nuevo objeto de clase categoria
+                    Categoria *categoria = new Categoria();
+                    categoria->setNombre(listaCategorias->at(i)->getNombre());
+                    categoria->setId(listaCategorias->at(i)->getId());
 
-                //Crear QTreeWidgetItem para Categoria
-                QTreeWidgetItem *categoriaItem = new QTreeWidgetItem();
-                categoriaItem->setData(0, Qt::UserRole, QVariant::fromValue(*categoria));
-                categoriaItem->setText(0, categoria->getNombre());
+                    //Crear QTreeWidgetItem para Categoria
+                    QTreeWidgetItem *categoriaItem = new QTreeWidgetItem();
+                    categoriaItem->setData(0, Qt::UserRole, QVariant::fromValue(*categoria));
+                    categoriaItem->setText(0, categoria->getNombre());
 
-                vista->addChildToParent(reglasItem, categoriaItem);
+                    vista->addChildToParent(reglasItem, categoriaItem);
+
+
+
+
+                    //Leer todas las subcategorias
+                    unique_ptr<vector<unique_ptr<Subcategoria>>> listaSubCategorias =
+                            std::move(getSubcategoriasByCategoriaId(categoria->getId()));
+
+                    //Checar que la lista de subcategorias no este vacía
+                    if(!listaSubCategorias->empty()){
+
+
+                        //Por cada regla crear un objeto de tipo regla y
+                        //añadirlo a QTreeWidgetItem
+                        for(uint i = 0; i < listaSubCategorias->size(); i++){
+                            //Crear nuevo objeto de clase subcategoria
+                            Subcategoria *subcategoria = new Subcategoria();
+                            subcategoria->setNombre(listaSubCategorias->at(i)->getNombre());
+                            subcategoria->setId(listaSubCategorias->at(i)->getId());
+
+                            //Crear QTreeWidgetItem para subcategoria
+                            QTreeWidgetItem *subcategoriaItem = new QTreeWidgetItem();
+                            subcategoriaItem->setData(0, Qt::UserRole, QVariant::fromValue(*subcategoria));
+                            subcategoriaItem->setText(0, subcategoria->getNombre());
+
+                            vista->addChildToParent(categoriaItem, subcategoriaItem);
+                        }
+                    }
+
 
                 }
             }

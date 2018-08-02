@@ -2,6 +2,7 @@
 #define SUBCATEGORIA_H
 
 #include <QString>
+#include <QMetaType>
 
 class Subcategoria
 {
@@ -22,5 +23,7 @@ private:
     QString nombre;
     int categoria_ID;
 };
+
+Q_DECLARE_METATYPE(Subcategoria)
 
 #endif // SUBCATEGORIA_H

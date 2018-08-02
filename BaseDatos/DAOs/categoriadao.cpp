@@ -99,11 +99,11 @@ unique_ptr<vector<unique_ptr<Categoria>>> CategoriaDao::getAllRecords() const
     return list;
 }
 
-std::unique_ptr<std::vector<std::unique_ptr<Categoria> > > CategoriaDao::getAllRecordsByRegla(int reglaId) const
+std::unique_ptr<std::vector<std::unique_ptr<Categoria> > > CategoriaDao::getAllRecordsByRegla(int recordId) const
 {
     QSqlQuery query(mDatabase);
     query.prepare("SELECT * FROM Categoria WHERE regla_ID = (:id)");
-    query.bindValue(":id", reglaId);
+    query.bindValue(":id", recordId);
     query.exec();
     DatabaseManager::debugQuery(query);
     unique_ptr<vector<unique_ptr<Categoria>>> list(new vector<unique_ptr<Categoria>>());

@@ -24,7 +24,7 @@ public:
     void removeAllRecords();
     std::unique_ptr<std::vector<std::unique_ptr<Categoria>>> getAllRecords() const;
     std::unique_ptr<std::vector<std::unique_ptr<Categoria>>>
-    getAllRecordsByRegla(int reglaId) const;
+    getAllRecordsByRegla(int recordId) const;
 
     void createIndexonColumnNombre() const;
     void createIndexonColumnRegla_ID() const;
