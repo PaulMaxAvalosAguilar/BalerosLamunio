@@ -10,21 +10,22 @@ ReglasVistaController::ReglasVistaController(ReglasVista *vista):
     DatabaseLogicController(),
     vista(vista)
 {
-    fillParentTree();
     addChildren();
 
     connect(&man.categoriadao, &CategoriaDao::addedRecord, this, &ReglasVistaController::addChildren);
 }
 
-void ReglasVistaController::fillParentTree()
-{
-    topItem = new QTreeWidgetItem();
-    topItem->setText(0,"Reglas");
-    vista->addTopLevelItem(topItem);
-}
 
 void ReglasVistaController::addChildren()
 {
+    //Limpiar el árbol
+    vista->clearTreeWidget();
+
+    //Añadir un topWidget
+    QTreeWidgetItem *topItem = new QTreeWidgetItem();
+    topItem->setText(0,"Reglas");
+    vista->addTopLevelItem(topItem);
+
     //leer todas las reglas de la base de datos
     unique_ptr<vector<unique_ptr<Regla>>> listaReglas =
             std::move(getReglas());

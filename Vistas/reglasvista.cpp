@@ -7,9 +7,9 @@ ReglasVista::ReglasVista(QWidget *parent) :
     ui(new Ui::ReglasVista)
 {
     ui->setupUi(this);
-    controlador.reset(new ReglasVistaController(this));
-
     configureTreeWidget();
+
+    controlador.reset(new ReglasVistaController(this));
 
 }
 

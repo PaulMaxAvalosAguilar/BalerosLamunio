@@ -43,7 +43,8 @@ SOURCES += main.cpp\
     Controllers/DatabaseLogic/databaselogiccontroller.cpp \
     Controllers/reglasvistacontroller.cpp \
     Vistas/reglasvista.cpp \
-    Vistas/Dialog/aniadircategoriadialog.cpp
+    Vistas/Dialog/aniadircategoriadialog.cpp \
+    Vistas/Dialog/aniadirregladialog.cpp
 
 HEADERS  += mainwindow.h \
     BaseDatos/DatabaseManager/databasemanager.h \
@@ -64,8 +65,10 @@ HEADERS  += mainwindow.h \
     Controllers/DatabaseLogic/databaselogiccontroller.h \
     Controllers/reglasvistacontroller.h \
     Vistas/reglasvista.h \
-    Vistas/Dialog/aniadircategoriadialog.h
+    Vistas/Dialog/aniadircategoriadialog.h \
+    Vistas/Dialog/aniadirregladialog.h
 
 FORMS    += mainwindow.ui \
     Vistas/reglasvista.ui \
-    Vistas/Dialog/aniadircategoriadialog.ui
+    Vistas/Dialog/aniadircategoriadialog.ui \
+    Vistas/Dialog/aniadirregladialog.ui

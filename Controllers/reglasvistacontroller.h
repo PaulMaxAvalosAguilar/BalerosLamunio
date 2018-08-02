@@ -11,7 +11,6 @@ class ReglasVistaController : public DatabaseLogicController
 public:
     ReglasVistaController(ReglasVista *vista);
 
-    void fillParentTree();
 
 public slots:
     void addChildren();
@@ -22,7 +21,6 @@ public:
 
 private:
     ReglasVista * vista;
-    QTreeWidgetItem *topItem;
 
 public:
 
