@@ -15,7 +15,19 @@ DatabaseLogicController::~DatabaseLogicController()
 
 void DatabaseLogicController::addRegla(QString nombre)
 {
+    //Check not null values
+    if(nombre.isEmpty()){
+     QMessageBox box;
+     box.setText("No has ingresado un nombre");
+     box.exec();
+     return;
+    }
 
+    //Build Object
+
+    Regla regla;
+    regla.setNombre(nombre);
+    man.regladao.addRecord(regla);
 }
 
 void DatabaseLogicController::updateRegla(int id, QString nombre)

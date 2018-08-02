@@ -14,6 +14,12 @@ class AniadirReglaDialog : public QDialog
 public:
     explicit AniadirReglaDialog(QWidget *parent = 0);
     ~AniadirReglaDialog();
+    QString getNombre();
+
+private slots:
+    void on_buttonBox_accepted();
+
+    void on_buttonBox_rejected();
 
 private:
     Ui::AniadirReglaDialog *ui;
