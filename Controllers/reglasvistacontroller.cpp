@@ -18,14 +18,17 @@ ReglasVistaController::ReglasVistaController(ReglasVista *vista):
     //Regla Signals
     connect(&man.regladao, &ReglaDao::addedRecord, this, &ReglasVistaController::addChildren);
     connect(&man.regladao, &ReglaDao::updatedRecord, this, &ReglasVistaController::addChildren);
+    connect(&man.regladao, &ReglaDao::removedRecord, this, &ReglasVistaController::addChildren);
 
     //Categoria Signals
     connect(&man.categoriadao, &CategoriaDao::addedRecord, this, &ReglasVistaController::addChildren);
     connect(&man.categoriadao, &CategoriaDao::updatedRecord, this, &ReglasVistaController::addChildren);
+    connect(&man.categoriadao, &CategoriaDao::removedRecord, this, &ReglasVistaController::addChildren);
 
     //Subcategoria Signals
     connect(&man.subcategoriadao, &SubcategoriaDao::addedRecord, this, &ReglasVistaController::addChildren);
     connect(&man.subcategoriadao, &SubcategoriaDao::updatedRecord, this, &ReglasVistaController::addChildren);
+    connect(&man.subcategoriadao, &SubcategoriaDao::removedRecord, this, &ReglasVistaController::addChildren);
 }
 
 
@@ -214,6 +217,25 @@ void ReglasVistaController::showupdateDialog(const QModelIndex &index)
             return;
 
         updateSubcategoria(subcategoria.getId(), dal.getNombre(), subcategoria.getCategoria_ID());
+    }else{
+
+    }
+}
+
+void ReglasVistaController::removeAction(const QModelIndex &index)
+{
+    if(index.data(Qt::UserRole).canConvert<Regla>()){
+
+        Regla regla = index.data(Qt::UserRole).value<Regla>();
+
+
+
+    }else if(index.data(Qt::UserRole).canConvert<Categoria>()){
+        Categoria categoria = index.data(Qt::UserRole).value<Categoria>();
+
+    }else if(index.data(Qt::UserRole).canConvert<Subcategoria>()){
+        Subcategoria subcategoria = index.data(Qt::UserRole).value<Subcategoria>();
+
     }else{
 
     }
