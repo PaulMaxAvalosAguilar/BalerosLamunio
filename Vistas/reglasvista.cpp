@@ -38,7 +38,19 @@ void ReglasVista::addChildToParent(QTreeWidgetItem *parent, QTreeWidgetItem *chi
     parent->addChild(child);
 }
 
-void ReglasVista::on_treeWidget_doubleClicked(const QModelIndex &index)
+
+
+void ReglasVista::on_addpB_clicked()
 {
-    controlador->showAddDialog(index);
+    controlador->showAddDialog(ui->treeWidget->currentIndex());
+}
+
+void ReglasVista::on_updatepB_clicked()
+{
+
+}
+
+void ReglasVista::on_removepB_clicked()
+{
+
 }

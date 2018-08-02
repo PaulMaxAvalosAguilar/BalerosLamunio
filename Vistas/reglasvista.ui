@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>512</width>
+    <width>654</width>
     <height>300</height>
    </rect>
   </property>
@@ -14,7 +14,7 @@
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="1" column="0" colspan="2">
+   <item row="1" column="0" colspan="5">
     <widget class="QTreeWidget" name="treeWidget">
      <column>
       <property name="text">
@@ -23,18 +23,29 @@
      </column>
     </widget>
    </item>
-   <item row="0" column="1">
-    <widget class="QPushButton" name="pushButton">
+   <item row="1" column="5">
+    <widget class="QTableWidget" name="tableWidget"/>
+   </item>
+   <item row="0" column="2">
+    <widget class="QPushButton" name="removepB">
      <property name="text">
-      <string>PushButton</string>
+      <string>Remove</string>
      </property>
     </widget>
    </item>
    <item row="0" column="0">
-    <widget class="QLineEdit" name="lineEdit"/>
+    <widget class="QPushButton" name="addpB">
+     <property name="text">
+      <string>Add</string>
+     </property>
+    </widget>
    </item>
-   <item row="1" column="2">
-    <widget class="QTableWidget" name="tableWidget"/>
+   <item row="0" column="1">
+    <widget class="QPushButton" name="updatepB">
+     <property name="text">
+      <string>Update</string>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>
