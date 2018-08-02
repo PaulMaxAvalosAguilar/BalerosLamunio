@@ -88,7 +88,20 @@ std::unique_ptr<std::vector<std::unique_ptr<Categoria> > > DatabaseLogicControll
 
 void DatabaseLogicController::addSubcategoria(QString nombre, int categoriaid)
 {
+    //Check not null values
+    if(nombre.isEmpty()){
+     QMessageBox box;
+     box.setText("No has ingresado un nombre");
+     box.exec();
+     return;
+    }
 
+    //Build object
+    Subcategoria subcategoria;
+    subcategoria.setNombre(nombre);
+    subcategoria.setCategoria_ID(categoriaid);
+
+    man.subcategoriadao.addRecord(subcategoria);
 }
 
 void DatabaseLogicController::updateSubcategoria(int id, QString nombre, int categoriaid)
