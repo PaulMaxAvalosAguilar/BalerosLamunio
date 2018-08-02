@@ -25,6 +25,9 @@ public:
     void addChildToParent(QTreeWidgetItem *parent,
                           QTreeWidgetItem *child);
 
+    void configureTableWidget();
+    void addDatatoTable();
+
 private slots:
 
     void on_addpB_clicked();

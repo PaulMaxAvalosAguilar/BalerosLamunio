@@ -1,5 +1,6 @@
 #include "reglasvista.h"
 #include "ui_reglasvista.h"
+#include <QScrollBar>
 #include <QDebug>
 
 ReglasVista::ReglasVista(QWidget *parent) :
@@ -8,6 +9,7 @@ ReglasVista::ReglasVista(QWidget *parent) :
 {
     ui->setupUi(this);
     configureTreeWidget();
+    configureTableWidget();
 
     controlador.reset(new ReglasVistaController(this));
 
@@ -36,6 +38,28 @@ void ReglasVista::addTopLevelItem(QTreeWidgetItem *item)
 void ReglasVista::addChildToParent(QTreeWidgetItem *parent, QTreeWidgetItem *child)
 {
     parent->addChild(child);
+}
+
+void ReglasVista::configureTableWidget()
+{
+    //Empty no configurations required
+}
+
+void ReglasVista::addDatatoTable()
+{
+
+    //GET CURRENT SCROLLBARS POSITIONS
+    QScrollBar *verticalScroll = ui->tableWidget->verticalScrollBar();
+    QScrollBar *horizontalScroll = ui->tableWidget->verticalScrollBar();
+    int lastVscrollposition = verticalScroll->value();
+    int lastHscrollposition = horizontalScroll->value();
+    //GET CURRENT SCROLLBARS POSITIONS
+
+
+    //RESET SCROLLBARS POSITIONS
+    verticalScroll->setValue(lastVscrollposition);
+    horizontalScroll->setValue(lastHscrollposition);
+    //RESET SCROLLBARS POSIITONS
 }
 
 
