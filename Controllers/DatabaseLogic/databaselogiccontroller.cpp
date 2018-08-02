@@ -1,6 +1,8 @@
 #include "databaselogiccontroller.h"
+#include <QMessageBox>
 
 DatabaseLogicController::DatabaseLogicController():
+    QObject(),
     man(DatabaseManager::instance())
 {
 
@@ -34,7 +36,20 @@ std::unique_ptr<std::vector<std::unique_ptr<Regla> > > DatabaseLogicController::
 
 void DatabaseLogicController::addCategoria(QString nombre, int reglaid)
 {
+    //Check not null values
+    if(nombre.isEmpty()){
+     QMessageBox box;
+     box.setText("No has ingresado un nombre");
+     box.exec();
+     return;
+    }
 
+    //Build object
+    Categoria categoria;
+    categoria.setNombre(nombre);
+    categoria.setRegla_ID(reglaid);
+
+    man.categoriadao.addRecord(categoria);
 }
 
 void DatabaseLogicController::updateCategoria(int id, QString nombre, int reglaid)

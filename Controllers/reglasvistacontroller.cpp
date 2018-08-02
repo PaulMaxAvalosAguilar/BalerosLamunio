@@ -1,5 +1,7 @@
 #include "reglasvistacontroller.h"
-#include <Vistas/reglasvista.h>
+#include "Vistas/reglasvista.h"
+#include "Vistas/Dialog/aniadircategoriadialog.h"
+#include <QDebug>
 
 using namespace std;
 
@@ -10,6 +12,8 @@ ReglasVistaController::ReglasVistaController(ReglasVista *vista):
 {
     fillParentTree();
     addChildren();
+
+    connect(&man.categoriadao, &CategoriaDao::addedRecord, this, &ReglasVistaController::addChildren);
 }
 
 void ReglasVistaController::fillParentTree()
@@ -107,7 +111,28 @@ void ReglasVistaController::addChildren()
 
 void ReglasVistaController::showAddDialog(const QModelIndex &index)
 {
-    if(index.data(Qt::UserRole).canConvert<Regla>())
+    if(index.data(Qt::UserRole).canConvert<Regla>()){
+        qDebug()<<"Puede convertir a regla";
+
+        Regla regla = index.data(Qt::UserRole).value<Regla>();
+
+        int result;
+
+        AniadirCategoriaDialog dal;
+        dal.setWindowTitle("Añadir categoria");
+        result = dal.exec();
+
+        if(result == QDialog::Rejected)
+            return;
+
+        addCategoria(dal.getNombre(), regla.getId());
+
+
+    }else if(index.data(Qt::UserRole).canConvert<Categoria>()){
+        qDebug()<<"Puede convertir a categoria";
+    }else if(index.data(Qt::UserRole).canConvert<Subcategoria>()){
+        qDebug()<<"Puede convertir a subcategoria";
+    }
 }
 
 

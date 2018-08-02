@@ -26,7 +26,7 @@ public:
                           QTreeWidgetItem *child);
 
 private slots:
-    void on_treeWidget_clicked(const QModelIndex &index);
+    void on_treeWidget_doubleClicked(const QModelIndex &index);
 
 private:
     Ui::ReglasVista *ui;

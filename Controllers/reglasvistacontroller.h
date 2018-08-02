@@ -12,7 +12,11 @@ public:
     ReglasVistaController(ReglasVista *vista);
 
     void fillParentTree();
+
+public slots:
     void addChildren();
+
+public:
     void showAddDialog(const QModelIndex &index);
 
 

@@ -1,6 +1,7 @@
 #ifndef DATABASELOGICCONTROLLER_H
 #define DATABASELOGICCONTROLLER_H
 
+#include <QObject>
 #include <QString>
 #include <memory>
 #include <vector>
@@ -11,8 +12,11 @@
 
 #include "BaseDatos/DatabaseManager/databasemanager.h"
 
-class DatabaseLogicController
+class DatabaseLogicController : public QObject
 {
+
+    Q_OBJECT
+
 public:
     DatabaseLogicController();
     virtual ~DatabaseLogicController();
