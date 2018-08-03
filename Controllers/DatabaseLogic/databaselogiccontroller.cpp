@@ -67,6 +67,11 @@ void DatabaseLogicController::removeRegla(int id)
     man.regladao.removeRecord(id);
 }
 
+std::unique_ptr<std::vector<std::unique_ptr<Regla> > > DatabaseLogicController::getRegla(int id)
+{
+    return man.regladao.getRecord(id);
+}
+
 std::unique_ptr<std::vector<std::unique_ptr<Regla> > > DatabaseLogicController::getReglas()
 {
     //Leer todas las reglas
@@ -124,6 +129,11 @@ void DatabaseLogicController::removeCategoria(int id)
 
     //Delete record
     man.categoriadao.removeRecord(id);
+}
+
+std::unique_ptr<std::vector<std::unique_ptr<Categoria> > > DatabaseLogicController::getCategoria(int id)
+{
+    return man.categoriadao.getRecord(id);
 }
 
 std::unique_ptr<std::vector<std::unique_ptr<Categoria> > > DatabaseLogicController::getCategorias()
@@ -191,6 +201,11 @@ void DatabaseLogicController::removeSubcategoria(int id)
     man.subcategoriadao.removeRecord(id);
 }
 
+std::unique_ptr<std::vector<std::unique_ptr<Subcategoria> > > DatabaseLogicController::getSubcategoria(int id)
+{
+    return man.subcategoriadao.getRecord(id);
+}
+
 std::unique_ptr<std::vector<std::unique_ptr<Subcategoria> > > DatabaseLogicController::getSubcategorias()
 {
     //Leer todas las subcategorias
@@ -218,6 +233,11 @@ void DatabaseLogicController::removeCodigo(int id)
 {
     //Delete record
     man.codigodao.removeRecord(id);
+}
+
+std::unique_ptr<std::vector<std::unique_ptr<Codigo> > > DatabaseLogicController::getCodigo(int id)
+{
+    return man.codigodao.getRecord(id);
 }
 
 std::unique_ptr<std::vector<std::unique_ptr<Codigo> > > DatabaseLogicController::getCodigos()

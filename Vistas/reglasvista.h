@@ -31,6 +31,8 @@ public:
     void clearTableWidget();
     void addDatatoTable(std::vector<QTableWidgetItem *> &itemsList);
 
+    void changeTitleLabelText(QString titulo);
+
 private slots:
 
     void on_addpB_clicked();
@@ -38,6 +40,8 @@ private slots:
     void on_updatepB_clicked();
 
     void on_removepB_clicked();
+
+    void on_readCodepB_clicked();
 
 private:
     Ui::ReglasVista *ui;

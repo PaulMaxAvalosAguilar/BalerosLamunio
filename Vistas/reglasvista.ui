@@ -7,22 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>654</width>
-    <height>300</height>
+    <height>328</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="1" column="0" colspan="5">
-    <widget class="QTreeWidget" name="treeWidget">
-     <column>
-      <property name="text">
-       <string notr="true">1</string>
-      </property>
-     </column>
-    </widget>
-   </item>
    <item row="1" column="5">
     <widget class="QTableWidget" name="tableWidget">
      <property name="editTriggers">
@@ -66,6 +57,22 @@
      <property name="text">
       <string>Update</string>
      </property>
+    </widget>
+   </item>
+   <item row="2" column="0" colspan="3">
+    <widget class="QPushButton" name="pushButton">
+     <property name="text">
+      <string>Read Códigos</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="3">
+    <widget class="QTreeWidget" name="treeWidget">
+     <column>
+      <property name="text">
+       <string notr="true">1</string>
+      </property>
+     </column>
     </widget>
    </item>
   </layout>

@@ -14,12 +14,14 @@ public:
 
 public slots:
     void addChildren();
+    void fillTable();
 
 public:
     void showAddDialog(const QModelIndex &index);
     void showupdateDialog(const QModelIndex &index);
     void removeAction(const QModelIndex &index);
 
+    void muestraDatosTabla();
 
 private:
     ReglasVista * vista;

@@ -242,5 +242,22 @@ void ReglasVistaController::removeAction(const QModelIndex &index)
     }
 }
 
+void ReglasVistaController::muestraDatosTabla(QModelIndex &index)
+{
+    if(index.data(Qt::UserRole).canConvert<Subcategoria>()){
+
+        Subcategoria *subcat = index.data(Qt::UserRole).value<Subcategoria>();
+        subcat->getCategoria_ID();
+
+
+        QString tableTitle;
+
+        tableTitle.append(subcat->getNombre());
+
+
+        vista->changeTitleLabelText();
+    }
+}
+
 
 
