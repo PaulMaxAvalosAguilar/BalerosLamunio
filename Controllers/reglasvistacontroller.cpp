@@ -3,6 +3,7 @@
 #include "Vistas/Dialog/categoriadialog.h"
 #include "Vistas/Dialog/regladialog.h"
 #include "Vistas/Dialog/subcategoriadialog.h"
+#include "Vistas/Dialog/codigodialog.h"
 #include <QTreeWidgetItem>
 #include <QTableWidgetItem>
 #include <QDebug>
@@ -152,8 +153,10 @@ void ReglasVistaController::fillTable()
             codigoItem->setData(Qt::UserRole, QVariant::fromValue(*code));
 
             codigosList.push_back(codigoItem);
+            delete code;
         }
         vista->addDatatoTable(codigosList);
+
     }
 }
 
@@ -189,6 +192,19 @@ void ReglasVistaController::showAddDialog(const QModelIndex &index)
         addSubcategoria(dal.getNombre(), categoria.getId());
 
     }else if(index.data(Qt::UserRole).canConvert<Subcategoria>()){
+        Subcategoria subcategoria = index.data(Qt::UserRole).value<Subcategoria>();
+
+        int result;
+
+        CodigoDialog dal;
+        dal.setWindowTitle("Añadir Código");
+        result = dal.exec();
+
+        if(result == QDialog::Rejected)
+            return;
+
+        addCodigo(dal.getCaracteres(), subcategoria.getId());
+
 
     }else{
         int result;
