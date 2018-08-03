@@ -32,6 +32,9 @@ ReglasVistaController::ReglasVistaController(ReglasVista *vista):
     connect(&man.subcategoriadao, &SubcategoriaDao::addedRecord, this, &ReglasVistaController::addChildren);
     connect(&man.subcategoriadao, &SubcategoriaDao::updatedRecord, this, &ReglasVistaController::addChildren);
     connect(&man.subcategoriadao, &SubcategoriaDao::removedRecord, this, &ReglasVistaController::addChildren);
+
+    //Codigo Signals
+    connect(&man.codigodao, &CodigoDao::addedRecord, this, &ReglasVistaController::fillTable);
 }
 
 
@@ -123,9 +126,7 @@ void ReglasVistaController::addChildren()
                             vista->addChildToParent(categoriaItem, subcategoriaItem);
 
 
-                            delete subcategoria;
-                            delete categoria;
-                            delete regla;
+
                         }
                     }
                 }
@@ -299,6 +300,8 @@ void ReglasVistaController::muestraDatosTabla(const QModelIndex &index)
         subcatToDisplay =  subcat.getId();
         fillTable();
 
+    }else{
+        vista->clearTableWidget();
     }
 }
 
