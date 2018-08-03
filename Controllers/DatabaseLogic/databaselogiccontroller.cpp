@@ -239,7 +239,21 @@ void DatabaseLogicController::addCodigo(QString caracteres, int subcategoriaid)
 
 void DatabaseLogicController::updateCodigo(int id, QString caracteres, int subcategoriaid)
 {
+    //Check not null values
+    if(caracteres.isEmpty()){
+     QMessageBox box;
+     box.setText("No has ingresado ningunos caracteres");
+     box.exec();
+     return;
+    }
 
+    //Build object
+    Codigo codigo;
+    codigo.setId(id);
+    codigo.setCaracteres(caracteres);
+    codigo.setSubcategoria_ID(subcategoriaid);
+
+    man.codigodao.updateRecord(codigo);
 }
 
 void DatabaseLogicController::removeCodigo(int id)
