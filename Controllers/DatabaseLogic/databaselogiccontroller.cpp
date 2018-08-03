@@ -230,11 +230,11 @@ void DatabaseLogicController::addCodigo(QString caracteres, int subcategoriaid)
     }
 
     //Build object
-    Subcategoria subcategoria;
-    subcategoria.setNombre(nombre);
-    subcategoria.setCategoria_ID(categoriaid);
+    Codigo codigo;
+    codigo.setCaracteres(caracteres);
+    codigo.setSubcategoria_ID(subcategoriaid);
 
-    man.subcategoriadao.addRecord(subcategoria);
+    man.codigodao.addRecord(codigo);
 }
 
 void DatabaseLogicController::updateCodigo(int id, QString caracteres, int subcategoriaid)
