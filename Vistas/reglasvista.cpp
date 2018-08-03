@@ -76,11 +76,6 @@ void ReglasVista::addDatatoTable( vector<QTableWidgetItem *> &itemsList)
     //RESET SCROLLBARS POSIITONS
 }
 
-void ReglasVista::changeTitleLabelText(QString titulo)
-{
-    ui->titleLabel->setText(titulo);
-}
-
 void ReglasVista::on_addpB_clicked()
 {
     controlador->showAddDialog(ui->treeWidget->currentIndex());

@@ -2,6 +2,7 @@
 #define CODIGO_H
 
 #include <QString>
+#include <QMetaType>
 
 class Codigo
 {
@@ -23,5 +24,7 @@ private:
     int subcategoria_ID;
 
 };
+
+Q_DECLARE_METATYPE(Codigo)
 
 #endif // CODIGO_H

@@ -3,6 +3,8 @@
 #include "Vistas/Dialog/categoriadialog.h"
 #include "Vistas/Dialog/regladialog.h"
 #include "Vistas/Dialog/subcategoriadialog.h"
+#include <QTreeWidgetItem>
+#include <QTableWidgetItem>
 #include <QDebug>
 
 using namespace std;
@@ -126,6 +128,30 @@ void ReglasVistaController::addChildren()
     }
 }
 
+void ReglasVistaController::fillTable()
+{
+    unique_ptr<vector<unique_ptr<Codigo>>> listaCodigos
+            = getCodigosbySubcategoriaId(subcatToDisplay);
+
+    if(!listaCodigos->empty()){
+        vector<QTableWidgetItem *> codigosList;
+
+        for(uint i = 0; i < listaCodigos->size(); i++){
+
+            Codigo *code = new Codigo();
+            code->setId(listaCodigos->at(i)->getId());
+            code->setCaracteres(listaCodigos->at(i)->getCaracteres());
+            code->setSubcategoria_ID(listaCodigos->at(i)->getSubcategoria_ID());
+
+            QTableWidgetItem *codigoItem = new QTableWidgetItem();
+            codigoItem->setData(Qt::UserRole, QVariant::fromValue(*code));
+
+            codigosList.push_back(codigoItem);
+        }
+        vista->addDatatoTable(codigosList);
+    }
+}
+
 void ReglasVistaController::showAddDialog(const QModelIndex &index)
 {
     if(index.data(Qt::UserRole).canConvert<Regla>()){
@@ -242,20 +268,14 @@ void ReglasVistaController::removeAction(const QModelIndex &index)
     }
 }
 
-void ReglasVistaController::muestraDatosTabla(QModelIndex &index)
+void ReglasVistaController::muestraDatosTabla(const QModelIndex &index)
 {
     if(index.data(Qt::UserRole).canConvert<Subcategoria>()){
 
-        Subcategoria *subcat = index.data(Qt::UserRole).value<Subcategoria>();
-        subcat->getCategoria_ID();
+        Subcategoria subcat = index.data(Qt::UserRole).value<Subcategoria>();
+        subcatToDisplay =  subcat.getCategoria_ID();
+        fillTable();
 
-
-        QString tableTitle;
-
-        tableTitle.append(subcat->getNombre());
-
-
-        vista->changeTitleLabelText();
     }
 }
 

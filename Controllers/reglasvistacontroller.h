@@ -2,7 +2,6 @@
 #define REGLASVISTACONTROLLER_H
 
 #include "Controllers/DatabaseLogic/databaselogiccontroller.h"
-#include <QTreeWidgetItem>
 
 class ReglasVista;
 
@@ -21,10 +20,11 @@ public:
     void showupdateDialog(const QModelIndex &index);
     void removeAction(const QModelIndex &index);
 
-    void muestraDatosTabla();
+    void muestraDatosTabla(const QModelIndex &index);
 
 private:
     ReglasVista * vista;
+    int subcatToDisplay;
 
 public:
 
