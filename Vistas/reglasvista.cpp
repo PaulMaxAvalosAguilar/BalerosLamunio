@@ -3,6 +3,8 @@
 #include <QScrollBar>
 #include <QDebug>
 
+using namespace std;
+
 ReglasVista::ReglasVista(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ReglasVista)
@@ -12,6 +14,14 @@ ReglasVista::ReglasVista(QWidget *parent) :
     configureTableWidget();
 
     controlador.reset(new ReglasVistaController(this));
+
+    QTableWidgetItem *item = new QTableWidgetItem();
+    item->setText("Holo");
+
+    vector<QTableWidgetItem *> itemsList;
+    itemsList.push_back(item);
+
+    addDatatoTable(itemsList);
 
 }
 
@@ -45,7 +55,7 @@ void ReglasVista::configureTableWidget()
     //Empty no configurations required
 }
 
-void ReglasVista::addDatatoTable()
+void ReglasVista::addDatatoTable( vector<QTableWidgetItem *> &itemsList)
 {
 
     //GET CURRENT SCROLLBARS POSITIONS
@@ -55,6 +65,13 @@ void ReglasVista::addDatatoTable()
     int lastHscrollposition = horizontalScroll->value();
     //GET CURRENT SCROLLBARS POSITIONS
 
+    if(!itemsList.empty()){
+        for(uint i = 0; i < itemsList.size(); i++){
+
+            ui->tableWidget->insertRow(ui->tableWidget->rowCount());
+            ui->tableWidget->setItem(ui->tableWidget->rowCount()-1, 0, itemsList.at(i));
+        }
+    }
 
     //RESET SCROLLBARS POSITIONS
     verticalScroll->setValue(lastVscrollposition);

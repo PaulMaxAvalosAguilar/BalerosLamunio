@@ -2,7 +2,9 @@
 #define REGLASVISTA_H
 
 #include <QWidget>
+#include <vector>
 #include <QTreeWidgetItem>
+#include <QTableWidgetItem>
 #include "Controllers/reglasvistacontroller.h"
 #include <memory>
 
@@ -26,7 +28,7 @@ public:
                           QTreeWidgetItem *child);
 
     void configureTableWidget();
-    void addDatatoTable();
+    void addDatatoTable(std::vector<QTableWidgetItem *> &itemsList);
 
 private slots:
 
