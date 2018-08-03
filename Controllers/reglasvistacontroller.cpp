@@ -60,7 +60,7 @@ void ReglasVistaController::addChildren()
         for(uint i = 0; i < listaReglas->size(); i++){
 
             //Crear nueva objeto de clase regla
-            Regla *regla = new Regla();
+            unique_ptr<Regla> regla(new Regla);
             regla->setId(listaReglas->at(i)->getId());
             regla->setNombre(listaReglas->at(i)->getNombre());
 
@@ -86,7 +86,7 @@ void ReglasVistaController::addChildren()
                 for(uint i = 0; i < listaCategorias->size();i++){
 
                     //Crear nuevo objeto de clase categoria
-                    Categoria *categoria = new Categoria();
+                    unique_ptr<Categoria> categoria(new Categoria);
                     categoria->setId(listaCategorias->at(i)->getId());
                     categoria->setNombre(listaCategorias->at(i)->getNombre());                    
                     categoria->setRegla_ID(regla->getId());
@@ -113,7 +113,7 @@ void ReglasVistaController::addChildren()
                         //añadirlo a QTreeWidgetItem
                         for(uint i = 0; i < listaSubCategorias->size(); i++){
                             //Crear nuevo objeto de clase subcategoria
-                            Subcategoria *subcategoria = new Subcategoria();
+                            unique_ptr<Subcategoria> subcategoria(new Subcategoria);
                             subcategoria->setId(listaSubCategorias->at(i)->getId());
                             subcategoria->setNombre(listaSubCategorias->at(i)->getNombre());
                             subcategoria->setCategoria_ID(categoria->getId());
@@ -124,10 +124,8 @@ void ReglasVistaController::addChildren()
                             subcategoriaItem->setText(0, subcategoria->getNombre());
 
                             vista->addChildToParent(categoriaItem, subcategoriaItem);
-
-
-
                         }
+
                     }
                 }
             }
@@ -145,7 +143,7 @@ void ReglasVistaController::fillTable()
 
         for(uint i = 0; i < listaCodigos->size(); i++){
 
-            Codigo *code = new Codigo();
+            unique_ptr<Codigo> code(new Codigo);
             code->setId(listaCodigos->at(i)->getId());
             code->setCaracteres(listaCodigos->at(i)->getCaracteres());
             code->setSubcategoria_ID(listaCodigos->at(i)->getSubcategoria_ID());
@@ -155,7 +153,6 @@ void ReglasVistaController::fillTable()
             codigoItem->setText(code->getCaracteres());
 
             codigosList.push_back(codigoItem);
-            delete code;
         }
         vista->clearTableWidget();
         vista->addDatatoTable(codigosList);
