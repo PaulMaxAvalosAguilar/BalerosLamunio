@@ -28,6 +28,7 @@ public:
                           QTreeWidgetItem *child);
 
     void configureTableWidget();
+    void clearTableWidget();
     void addDatatoTable(std::vector<QTableWidgetItem *> &itemsList);
 
 private slots:

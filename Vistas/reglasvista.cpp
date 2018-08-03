@@ -15,14 +15,6 @@ ReglasVista::ReglasVista(QWidget *parent) :
 
     controlador.reset(new ReglasVistaController(this));
 
-    QTableWidgetItem *item = new QTableWidgetItem();
-    item->setText("Holo");
-
-    vector<QTableWidgetItem *> itemsList;
-    itemsList.push_back(item);
-
-    addDatatoTable(itemsList);
-
 }
 
 ReglasVista::~ReglasVista()
@@ -53,6 +45,11 @@ void ReglasVista::addChildToParent(QTreeWidgetItem *parent, QTreeWidgetItem *chi
 void ReglasVista::configureTableWidget()
 {
     //Empty no configurations required
+}
+
+void ReglasVista::clearTableWidget()
+{
+    ui->tableWidget->setRowCount(0);
 }
 
 void ReglasVista::addDatatoTable( vector<QTableWidgetItem *> &itemsList)
