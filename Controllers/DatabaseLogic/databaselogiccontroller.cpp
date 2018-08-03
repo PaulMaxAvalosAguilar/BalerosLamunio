@@ -221,7 +221,20 @@ std::unique_ptr<std::vector<std::unique_ptr<Subcategoria> > > DatabaseLogicContr
 
 void DatabaseLogicController::addCodigo(QString caracteres, int subcategoriaid)
 {
+    //Check not null values
+    if(caracteres.isEmpty()){
+     QMessageBox box;
+     box.setText("No has ingresado ningunos caracteres");
+     box.exec();
+     return;
+    }
 
+    //Build object
+    Subcategoria subcategoria;
+    subcategoria.setNombre(nombre);
+    subcategoria.setCategoria_ID(categoriaid);
+
+    man.subcategoriadao.addRecord(subcategoria);
 }
 
 void DatabaseLogicController::updateCodigo(int id, QString caracteres, int subcategoriaid)

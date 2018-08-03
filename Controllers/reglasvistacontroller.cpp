@@ -120,6 +120,11 @@ void ReglasVistaController::addChildren()
                             subcategoriaItem->setText(0, subcategoria->getNombre());
 
                             vista->addChildToParent(categoriaItem, subcategoriaItem);
+
+
+                            delete subcategoria;
+                            delete categoria;
+                            delete regla;
                         }
                     }
                 }
