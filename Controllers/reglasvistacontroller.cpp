@@ -151,10 +151,12 @@ void ReglasVistaController::fillTable()
 
             QTableWidgetItem *codigoItem = new QTableWidgetItem();
             codigoItem->setData(Qt::UserRole, QVariant::fromValue(*code));
+            codigoItem->setText(code->getCaracteres());
 
             codigosList.push_back(codigoItem);
             delete code;
         }
+        vista->clearTableWidget();
         vista->addDatatoTable(codigosList);
 
     }
@@ -294,7 +296,7 @@ void ReglasVistaController::muestraDatosTabla(const QModelIndex &index)
     if(index.data(Qt::UserRole).canConvert<Subcategoria>()){
 
         Subcategoria subcat = index.data(Qt::UserRole).value<Subcategoria>();
-        subcatToDisplay =  subcat.getCategoria_ID();
+        subcatToDisplay =  subcat.getId();
         fillTable();
 
     }
