@@ -21,7 +21,6 @@ private:
     int id;
     QString fullNombre;
     int coreBearing_ID;
-
 };
 
 #endif // COREPLUSMODIFIER_H
