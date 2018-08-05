@@ -21,6 +21,7 @@ public:
     void removeAction(const QModelIndex &index);
 
     void muestraDatosTabla(const QModelIndex &index);
+    void aniadeDatosTabla(const QModelIndex &index);
 
 private:
     ReglasVista * vista;

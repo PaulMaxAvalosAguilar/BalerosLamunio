@@ -91,7 +91,25 @@ void ReglasVista::on_removepB_clicked()
     controlador->removeAction(ui->treeWidget->currentIndex());
 }
 
-void ReglasVista::on_readCodepB_clicked()
+
+void ReglasVista::on_addCodepB_clicked()
+{
+    controlador->aniadeDatosTabla(ui->treeWidget->currentIndex());
+}
+
+void ReglasVista::on_updateCodepB_clicked()
+{
+
+}
+
+void ReglasVista::on_removeCodepB_clicked()
+{
+
+}
+
+
+
+void ReglasVista::on_pushButton_clicked()
 {
     controlador->muestraDatosTabla(ui->treeWidget->currentIndex());
 }

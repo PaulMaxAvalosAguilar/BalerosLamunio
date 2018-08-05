@@ -35,6 +35,8 @@ ReglasVistaController::ReglasVistaController(ReglasVista *vista):
 
     //Codigo Signals
     connect(&man.codigodao, &CodigoDao::addedRecord, this, &ReglasVistaController::fillTable);
+    connect(&man.codigodao, &CodigoDao::updateRecord, this, &ReglasVistaController::fillTable);
+    connect(&man.codigodao, &CodigoDao::removedRecord, this, &ReglasVistaController::fillTable);
 }
 
 
@@ -137,6 +139,7 @@ void ReglasVistaController::fillTable()
 {
     unique_ptr<vector<unique_ptr<Codigo>>> listaCodigos
             = getCodigosbySubcategoriaId(subcatToDisplay);
+    vista->clearTableWidget();
 
     if(!listaCodigos->empty()){
         vector<QTableWidgetItem *> codigosList;
@@ -154,7 +157,6 @@ void ReglasVistaController::fillTable()
 
             codigosList.push_back(codigoItem);
         }
-        vista->clearTableWidget();
         vista->addDatatoTable(codigosList);
 
     }
@@ -192,19 +194,6 @@ void ReglasVistaController::showAddDialog(const QModelIndex &index)
         addSubcategoria(dal.getNombre(), categoria.getId());
 
     }else if(index.data(Qt::UserRole).canConvert<Subcategoria>()){
-        Subcategoria subcategoria = index.data(Qt::UserRole).value<Subcategoria>();
-
-        int result;
-
-        CodigoDialog dal;
-        dal.setWindowTitle("Añadir Código");
-        result = dal.exec();
-
-        if(result == QDialog::Rejected)
-            return;
-
-        addCodigo(dal.getCaracteres(), subcategoria.getId());
-
 
     }else{
         int result;
@@ -299,6 +288,27 @@ void ReglasVistaController::muestraDatosTabla(const QModelIndex &index)
 
     }else{
         vista->clearTableWidget();
+    }
+}
+
+void ReglasVistaController::aniadeDatosTabla(const QModelIndex &index)
+{
+    if(index.data(Qt::UserRole).canConvert<Subcategoria>()){
+
+        Subcategoria subcat = index.data(Qt::UserRole).value<Subcategoria>();
+
+        int result;
+        CodigoDialog dal;
+        dal.setWindowTitle("Añadir codigo");
+
+        result = dal.exec();
+
+        if(result == QDialog::Rejected){
+            return;
+        }
+
+        addCodigo(dal.getCaracteres(), subcat.getId());
+
     }
 }
 

@@ -39,7 +39,13 @@ private slots:
 
     void on_removepB_clicked();
 
-    void on_readCodepB_clicked();
+    void on_addCodepB_clicked();
+
+    void on_updateCodepB_clicked();
+
+    void on_removeCodepB_clicked();
+
+    void on_pushButton_clicked();
 
 private:
     Ui::ReglasVista *ui;
