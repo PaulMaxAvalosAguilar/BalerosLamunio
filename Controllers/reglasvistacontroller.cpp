@@ -35,7 +35,7 @@ ReglasVistaController::ReglasVistaController(ReglasVista *vista):
 
     //Codigo Signals
     connect(&man.codigodao, &CodigoDao::addedRecord, this, &ReglasVistaController::fillTable);
-    connect(&man.codigodao, &CodigoDao::updateRecord, this, &ReglasVistaController::fillTable);
+    connect(&man.codigodao, &CodigoDao::updatedRecord, this, &ReglasVistaController::fillTable);
     connect(&man.codigodao, &CodigoDao::removedRecord, this, &ReglasVistaController::fillTable);
 }
 
@@ -317,8 +317,6 @@ void ReglasVistaController::actualizaDatoTabla(const QModelIndex &indexTree,
 {
     if(indexTree.data(Qt::UserRole).canConvert<Subcategoria>()){
 
-
-
         if(indexTable.data(Qt::UserRole).canConvert<Codigo>()){
             Subcategoria subcat = indexTree.data(Qt::UserRole).value<Subcategoria>();
             Codigo code = indexTable.data(Qt::UserRole).value<Codigo>();
@@ -335,13 +333,31 @@ void ReglasVistaController::actualizaDatoTabla(const QModelIndex &indexTree,
                 return;
             }
 
-
-
-
+            updateCodigo( code.getId(), dal.getCaracteres(), subcat.getId());
         }
-
-
     }
+}
+
+void ReglasVistaController::eleiminarDatoTabla(const QModelIndex &indexTable)
+{
+
+        if(indexTable.data(Qt::UserRole).canConvert<Codigo>()){
+            Codigo code = indexTable.data(Qt::UserRole).value<Codigo>();
+
+
+            int result;
+            CodigoDialog dal;
+            dal.setCaracteres(code.getCaracteres());
+            dal.setWindowTitle("Eliminar codigo");
+
+            result = dal.exec();
+
+            if(result == QDialog::Rejected){
+                return;
+            }
+
+            removeCodigo(code.getId());
+        }
 }
 
 

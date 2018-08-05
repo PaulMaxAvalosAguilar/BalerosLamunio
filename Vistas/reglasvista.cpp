@@ -105,10 +105,8 @@ void ReglasVista::on_updateCodepB_clicked()
 
 void ReglasVista::on_removeCodepB_clicked()
 {
-
+    controlador->eleiminarDatoTabla(ui->tableWidget->currentIndex());
 }
-
-
 
 void ReglasVista::on_pushButton_clicked()
 {
