@@ -22,6 +22,7 @@ public:
 
     void muestraDatosTabla(const QModelIndex &index);
     void aniadeDatosTabla(const QModelIndex &index);
+    void actualizaDatoTabla(const QModelIndex &indexTree, const QModelIndex &indexTable);
 
 private:
     ReglasVista * vista;

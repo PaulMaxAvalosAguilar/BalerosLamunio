@@ -99,7 +99,8 @@ void ReglasVista::on_addCodepB_clicked()
 
 void ReglasVista::on_updateCodepB_clicked()
 {
-
+    controlador->actualizaDatoTabla(ui->treeWidget->currentIndex(),
+                                    ui->tableWidget->currentIndex());
 }
 
 void ReglasVista::on_removeCodepB_clicked()

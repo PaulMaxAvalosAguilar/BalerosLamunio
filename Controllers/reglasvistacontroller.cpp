@@ -135,33 +135,6 @@ void ReglasVistaController::addChildren()
     }
 }
 
-void ReglasVistaController::fillTable()
-{
-    unique_ptr<vector<unique_ptr<Codigo>>> listaCodigos
-            = getCodigosbySubcategoriaId(subcatToDisplay);
-    vista->clearTableWidget();
-
-    if(!listaCodigos->empty()){
-        vector<QTableWidgetItem *> codigosList;
-
-        for(uint i = 0; i < listaCodigos->size(); i++){
-
-            unique_ptr<Codigo> code(new Codigo);
-            code->setId(listaCodigos->at(i)->getId());
-            code->setCaracteres(listaCodigos->at(i)->getCaracteres());
-            code->setSubcategoria_ID(listaCodigos->at(i)->getSubcategoria_ID());
-
-            QTableWidgetItem *codigoItem = new QTableWidgetItem();
-            codigoItem->setData(Qt::UserRole, QVariant::fromValue(*code));
-            codigoItem->setText(code->getCaracteres());
-
-            codigosList.push_back(codigoItem);
-        }
-        vista->addDatatoTable(codigosList);
-
-    }
-}
-
 void ReglasVistaController::showAddDialog(const QModelIndex &index)
 {
     if(index.data(Qt::UserRole).canConvert<Regla>()){
@@ -291,6 +264,33 @@ void ReglasVistaController::muestraDatosTabla(const QModelIndex &index)
     }
 }
 
+void ReglasVistaController::fillTable()
+{
+    unique_ptr<vector<unique_ptr<Codigo>>> listaCodigos
+            = getCodigosbySubcategoriaId(subcatToDisplay);
+    vista->clearTableWidget();
+
+    if(!listaCodigos->empty()){
+        vector<QTableWidgetItem *> codigosList;
+
+        for(uint i = 0; i < listaCodigos->size(); i++){
+
+            unique_ptr<Codigo> code(new Codigo);
+            code->setId(listaCodigos->at(i)->getId());
+            code->setCaracteres(listaCodigos->at(i)->getCaracteres());
+            code->setSubcategoria_ID(listaCodigos->at(i)->getSubcategoria_ID());
+
+            QTableWidgetItem *codigoItem = new QTableWidgetItem();
+            codigoItem->setData(Qt::UserRole, QVariant::fromValue(*code));
+            codigoItem->setText(code->getCaracteres());
+
+            codigosList.push_back(codigoItem);
+        }
+        vista->addDatatoTable(codigosList);
+
+    }
+}
+
 void ReglasVistaController::aniadeDatosTabla(const QModelIndex &index)
 {
     if(index.data(Qt::UserRole).canConvert<Subcategoria>()){
@@ -308,6 +308,38 @@ void ReglasVistaController::aniadeDatosTabla(const QModelIndex &index)
         }
 
         addCodigo(dal.getCaracteres(), subcat.getId());
+
+    }
+}
+
+void ReglasVistaController::actualizaDatoTabla(const QModelIndex &indexTree,
+                                               const QModelIndex &indexTable)
+{
+    if(indexTree.data(Qt::UserRole).canConvert<Subcategoria>()){
+
+
+
+        if(indexTable.data(Qt::UserRole).canConvert<Codigo>()){
+            Subcategoria subcat = indexTree.data(Qt::UserRole).value<Subcategoria>();
+            Codigo code = indexTable.data(Qt::UserRole).value<Codigo>();
+
+
+            int result;
+            CodigoDialog dal;
+            dal.setCaracteres(code.getCaracteres());
+            dal.setWindowTitle("Actualizar codigo");
+
+            result = dal.exec();
+
+            if(result == QDialog::Rejected){
+                return;
+            }
+
+
+
+
+        }
+
 
     }
 }
