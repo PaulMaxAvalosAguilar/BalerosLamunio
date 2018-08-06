@@ -279,3 +279,18 @@ std::unique_ptr<std::vector<std::unique_ptr<Codigo> > > DatabaseLogicController:
     return man.codigodao.getAllRecordsbySubcategoria(subcategoriaId);
 }
 
+std::unique_ptr<std::vector<std::unique_ptr<Coreplusmodifier> > > DatabaseLogicController::getCoreplusmodifiers()
+{
+    return man.coreplusmodifierdao.getAllRecords();
+}
+
+void DatabaseLogicController::addClasificacion(int subcat_ID, int cpm_ID)
+{
+    Clasificacion clasificacion;
+
+    clasificacion.setSubcategoria_ID(subcat_ID);
+    clasificacion.setCoreplusmodifier_ID(cpm_ID);
+
+    man.clasificaciondao.addRecord(clasificacion);
+}
+

@@ -9,6 +9,8 @@
 #include "BaseDatos/ENTITIES/categoria.h"
 #include "BaseDatos/ENTITIES/subcategoria.h"
 #include "BaseDatos/ENTITIES/codigo.h"
+#include "BaseDatos/ENTITIES/coreplusmodifier.h"
+#include "BaseDatos/ENTITIES/clasificacion.h"
 
 #include "BaseDatos/DatabaseManager/databasemanager.h"
 
@@ -50,6 +52,11 @@ public:
     std::unique_ptr<std::vector<std::unique_ptr<Codigo>>> getCodigos();
     std::unique_ptr<std::vector<std::unique_ptr<Codigo>>>
     getCodigosbySubcategoriaId(int subcategoriaId);
+
+
+    std::unique_ptr<std::vector<std::unique_ptr<Coreplusmodifier>>> getCoreplusmodifiers();
+
+    void addClasificacion(int subcat_ID, int cpm_ID);
 
 protected:
     DatabaseManager &man;

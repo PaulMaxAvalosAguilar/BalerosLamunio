@@ -73,8 +73,8 @@ HEADERS  += mainwindow.h \
     Vistas/Dialog/regladialog.h \
     Vistas/Dialog/subcategoriadialog.h \
     Vistas/Dialog/codigodialog.h \
-    Vistas/searchevista.h \
-    Controllers/searchervistacontroller.h
+    Controllers/searchervistacontroller.h \
+    Vistas/searchervista.h
 
 FORMS    += mainwindow.ui \
     Vistas/reglasvista.ui \

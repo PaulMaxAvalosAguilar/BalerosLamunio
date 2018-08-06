@@ -1,4 +1,4 @@
-#include "searchevista.h"
+#include "searchervista.h"
 #include "ui_searchervista.h"
 
 SearcherVista::SearcherVista(QWidget *parent) :
@@ -6,6 +6,7 @@ SearcherVista::SearcherVista(QWidget *parent) :
     ui(new Ui::SearcherVista)
 {
     ui->setupUi(this);
+    controlador.reset(new SearcherVistaController(this));
 }
 
 SearcherVista::~SearcherVista()
@@ -15,7 +16,7 @@ SearcherVista::~SearcherVista()
 
 void SearcherVista::on_clasificarpB_clicked()
 {
-
+    controlador->readAndClassify();
 }
 
 void SearcherVista::on_buscarpB_clicked()

@@ -10,6 +10,8 @@ class SearcherVistaController : DatabaseLogicController
 public:
     SearcherVistaController(SearcherVista *vista);
 
+    void readAndClassify();
+
 private:
     SearcherVista *vista;
 };

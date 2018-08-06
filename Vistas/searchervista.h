@@ -24,7 +24,7 @@ private slots:
 
 private:
     Ui::SearcherVista *ui;
-
+    std::unique_ptr<SearcherVistaController> controlador;
 
 };
 
