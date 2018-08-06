@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
     reglasvista(new ReglasVista),
-    searcher(new Searcher)
+    searcher(new SearcherVista)
 {
     ui->setupUi(this);
 
