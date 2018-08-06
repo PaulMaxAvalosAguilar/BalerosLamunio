@@ -46,7 +46,8 @@ SOURCES += main.cpp\
     Vistas/Dialog/categoriadialog.cpp \
     Vistas/Dialog/regladialog.cpp \
     Vistas/Dialog/subcategoriadialog.cpp \
-    Vistas/Dialog/codigodialog.cpp
+    Vistas/Dialog/codigodialog.cpp \
+    Vistas/searcher.cpp
 
 HEADERS  += mainwindow.h \
     BaseDatos/DatabaseManager/databasemanager.h \
@@ -70,11 +71,13 @@ HEADERS  += mainwindow.h \
     Vistas/Dialog/categoriadialog.h \
     Vistas/Dialog/regladialog.h \
     Vistas/Dialog/subcategoriadialog.h \
-    Vistas/Dialog/codigodialog.h
+    Vistas/Dialog/codigodialog.h \
+    Vistas/searcher.h
 
 FORMS    += mainwindow.ui \
     Vistas/reglasvista.ui \
     Vistas/Dialog/categoriadialog.ui \
     Vistas/Dialog/regladialog.ui \
     Vistas/Dialog/subcategoriadialog.ui \
-    Vistas/Dialog/codigodialog.ui
+    Vistas/Dialog/codigodialog.ui \
+    Vistas/searcher.ui

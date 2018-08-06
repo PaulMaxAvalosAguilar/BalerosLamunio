@@ -5,11 +5,13 @@
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
-    reglasvista(new ReglasVista)
+    reglasvista(new ReglasVista),
+    searcher(new Searcher)
 {
     ui->setupUi(this);
 
-    ui->centralWidget->layout()->addWidget(reglasvista);
+    ui->Reglas->layout()->addWidget(reglasvista);
+    ui->Searcher->layout()->addWidget(searcher);
 }
 
 MainWindow::~MainWindow()

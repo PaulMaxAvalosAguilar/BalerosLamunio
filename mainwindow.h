@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <Vistas/reglasvista.h>
+#include <Vistas/searcher.h>
 
 namespace Ui {
 class MainWindow;
@@ -19,6 +20,7 @@ public:
 private:
     Ui::MainWindow *ui;
     ReglasVista *reglasvista;
+    Searcher *searcher;
 };
 
 #endif // MAINWINDOW_H
