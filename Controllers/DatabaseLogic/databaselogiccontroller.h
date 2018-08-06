@@ -53,10 +53,13 @@ public:
     std::unique_ptr<std::vector<std::unique_ptr<Codigo>>>
     getCodigosbySubcategoriaId(int subcategoriaId);
 
-
+    std::unique_ptr<std::vector<std::unique_ptr<Coreplusmodifier>>> getCoreplusmodifier(int id);
     std::unique_ptr<std::vector<std::unique_ptr<Coreplusmodifier>>> getCoreplusmodifiers();
 
+
     void addClasificacion(int subcat_ID, int cpm_ID);
+    std::unique_ptr<std::vector<std::unique_ptr<Clasificacion>>>
+    getAllClasificacionesBySubcategoriaId(int subcategoriaId);
 
 protected:
     DatabaseManager &man;

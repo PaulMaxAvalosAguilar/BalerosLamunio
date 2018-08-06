@@ -23,6 +23,8 @@ public:
 
     void removeAllRecords();
     std::unique_ptr<std::vector<std::unique_ptr<Clasificacion>>> getAllRecords() const;
+    std::unique_ptr<std::vector<std::unique_ptr<Clasificacion>>>
+    getAllRecordsBySubcategoria(int recordId) const;
 
     void createIndexonColumnSubcategoria_ID();
     void createIndexonColumnCoreplusmodifier_ID();

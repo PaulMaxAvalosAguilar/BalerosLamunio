@@ -11,6 +11,7 @@ public:
     SearcherVistaController(SearcherVista *vista);
 
     void readAndClassify();
+    void searchSimilar(QString cadena);
 
 private:
     SearcherVista *vista;

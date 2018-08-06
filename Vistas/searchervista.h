@@ -16,6 +16,8 @@ class SearcherVista : public QWidget
 public:
     explicit SearcherVista(QWidget *parent = 0);
     ~SearcherVista();
+    void appendToTextBrowser(QString text);
+    void clearTextBrowser();
 
 private slots:
     void on_clasificarpB_clicked();

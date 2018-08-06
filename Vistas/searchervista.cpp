@@ -14,6 +14,16 @@ SearcherVista::~SearcherVista()
     delete ui;
 }
 
+void SearcherVista::appendToTextBrowser(QString text)
+{
+    ui->textBrowser->append(text);
+}
+
+void SearcherVista::clearTextBrowser()
+{
+    ui->textBrowser->clear();
+}
+
 void SearcherVista::on_clasificarpB_clicked()
 {
     controlador->readAndClassify();
@@ -21,5 +31,5 @@ void SearcherVista::on_clasificarpB_clicked()
 
 void SearcherVista::on_buscarpB_clicked()
 {
-
+    controlador->searchSimilar(ui->lineEdit->text());
 }
